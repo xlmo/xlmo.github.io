@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Category: Blog | xlmo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="xlmo's blog">
+<meta property="og:url" content="http://xlmo.github.io/categories/Blog/page/5/">
+<meta property="og:site_name" content="xlmo's blog">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xlmo's blog">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="xlmo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">xlmo&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://xlmo.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-81" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/08/05/81/" class="article-date">
+  <time datetime="2011-08-05T04:54:22.000Z" itemprop="datePublished">Aug 5 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/08/05/81/">Lion下编译Emacs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>需要重新编译下Emacs，由于是在Lion下，之前的那篇<a href="http://blog.xlmo.me/archives/34.html" title="Mac下编译Emacs" target="_blank" rel="external">Mac下编译Emacs</a>已经不行了，再记录下。</p>
+<p>生成configure</p>
+<p><pre class="brush:shell">#获取源码<br>git clone git://git.savannah.gnu.org/emacs.git<br>./autogen.sh<br>./configure —with-ns<br>make<br>make install</pre><br>./autogen.sh时提示automake和autoconf版本太低了。</p>
+<p><a href="http://www.mattvsworld.com/blog/2010/02/install-the-latest-autoconf-and-automake-on-mac-os-10-6/" target="_blank" rel="external">升级autoconf和automake版本</a></p>
+<p><pre class="brush:shell">curl -O <a href="http://mirrors.kernel.org/gnu/m4/m4-1.4.16.tar.gz" target="_blank" rel="external">http://mirrors.kernel.org/gnu/m4/m4-1.4.16.tar.gz</a><br>tar -xzvf m4-1.4.16.tar.gz<br>cd m4-1.4.13<br>./configure —prefix=/usr<br>make<br>sudo make install</pre></p>
+<p>cd ..<br>curl -O <a href="http://mirrors.kernel.org/gnu/autoconf/autoconf-2.68.tar.gz" target="_blank" rel="external">http://mirrors.kernel.org/gnu/autoconf/autoconf-2.68.tar.gz</a><br>tar -xzvf autoconf-2.68.tar.gz<br>cd autoconf-2.65<br>./configure —prefix=/usr<br>make<br>sudo make install<br>cd ..</p>
+<p>curl -O <a href="http://mirrors.kernel.org/gnu/automake/automake-1.11.1.tar.gz" target="_blank" rel="external">http://mirrors.kernel.org/gnu/automake/automake-1.11.1.tar.gz</a><br>tar xzvf automake-1.11.1.tar.gz<br>cd automake-1.11<br>./configure —prefix=/usr<br>make<br>sudo make install<br>搞定</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2011/08/05/81/" data-id="4vios5zyecweqteo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-79" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/08/04/79/" class="article-date">
+  <time datetime="2011-08-04T09:06:12.000Z" itemprop="datePublished">Aug 4 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/08/04/79/">iOS大富翁</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>推荐一款iOS游戏 <a href="http://itunes.apple.com/cn/app/id410536764?l=en&amp;mt=8" title="大家来抢钱" target="_blank" rel="external">大家来抢钱</a><br>iPhone/iPod Touch/iPad通用。<br>支持可和电脑玩，也可以和朋友一起玩（不是联机模式，是多人用一个设备玩，和早先PC上大富翁的模式一样）。<br>在iPad上和几个朋友一起玩，多么有意思。</p>
+<p>以下是截图：<br><img src="http://a4.mzstatic.com/us/r1000/090/Purple/5c/56/e7/mzl.emwrhejs.320x480-75.jpg" alt="人物和地图选择界面"></p>
+<p><img src="http://a3.mzstatic.com/us/r1000/062/Purple/cd/ec/e8/mzl.smiembxy.320x480-75.jpg" alt="大家来抢钱"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2011/08/04/79/" data-id="kxc8r0twl71a37v6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分享/">分享</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-77" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/08/04/77/" class="article-date">
+  <time datetime="2011-08-03T19:27:50.000Z" itemprop="datePublished">Aug 4 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/08/04/77/">不管喜不喜欢，生活过的地方就是那样</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>让人窒息的熟悉感觉，穿越十年，丝毫不模糊。</p>
+<p>还是那样的楼，还是那样的地，还是那样的景，可看它的心情却大不一样。让我唏嘘的不是岁月，而是对于猛回头发现诸事皆变的突然。</p>
+<p>以前的人，还是在那，位置不同了。老师、同学、领导、路人，没有一个缺席，都在装扮着我的回忆。</p>
+<p>校友，同学，我们何时荣归故里，我们何时举杯言欢，我们又何时形同陌路。</p>
+<p>生活过的地方，因为有人，所以有事情，因为有事情，而产生经历，因经历而产生感情，因感情而牢记岁月。匆匆而过的只是时间，我们的心不会随时间的流逝而消逝，只会在灰蒙蒙的来路上，感受着熟悉的气息。</p>
+<p>不管喜不喜欢，生活过的地方就是那样，总是会在你毫无防备的时候让你颤抖，因为真的忘不了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2011/08/04/77/" data-id="349oaft0n1o0zm9w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-75" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/08/03/75/" class="article-date">
+  <time datetime="2011-08-03T10:21:05.000Z" itemprop="datePublished">Aug 3 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/08/03/75/">问</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以前不听梁静茹，直到这首歌。<br>反复听，反复听，堪称完美的演绎。<br>喜欢听这样的声音。之前的许茹芸和王若琳也是有同样的感觉，天籁。<br>语言太苍白，用耳朵来感觉吧。</p>
+<object width="480" height="400" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="src" value="http://player.youku.com/player.php/sid/XMzU4OTQyMzY=/v.swf"><param name="allowfullscreen" value="true"><param name="quality" value="high"><param name="allowscriptaccess" value="always"><embed width="480" height="400" type="application/x-shockwave-flash" src="http://player.youku.com/player.php/sid/XMzU4OTQyMzY=/v.swf" allowfullscreen="true" quality="high" allowscriptaccess="always"></object>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2011/08/03/75/" data-id="tcewf97l8u0rvndk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分享/">分享</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-73" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/07/31/73/" class="article-date">
+  <time datetime="2011-07-30T17:51:59.000Z" itemprop="datePublished">Jul 31 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/07/31/73/">我用的Mac软件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>常用软件,在Lion下工作良好。不包括CLI程序。</p>
+<p>iTunes 必备</p>
+<p>Xcode 必备</p>
+<p>IMKQIM 必备，中文输入法</p>
+<p>Speed Download 5  下载工具</p>
+<p>Paragon NTFS for Mac OS X 读写ntfs分区工具</p>
+<p>Zend Studio 写PHP用的</p>
+<p>Xmarks for Safari 用来同步chrome和safari的书签</p>
+<p>Twitter 官方客户端，比较好用</p>
+<p>Tunnelblick 必备，OpenVPN</p>
+<p>Transmit 必备，用过许多ftp客户端，感觉还是这个最好用。</p>
+<p>TotalFinder 必备，标签化Finder</p>
+<p>TextWrangler 取代记事本的工具</p>
+<p>TextMate 因为中文及编码问题，基本上只用到了Run，当作一个调试工具了</p>
+<p>SplayerX 视频就靠它了，不完美，但是比较完美的了。。</p>
+<p>SplashtopRemoteStreamer  挂机下载用。</p>
+<p>Snippets 代码片段，可通过MobileMe同步</p>
+<p>Simple Comic 看漫画的工具</p>
+<p>Sequel Pro MySQL客户端，居然是免费的。。</p>
+<p>Remote Desktop Connection 连接Windows用的。</p>
+<p>RAR Expander 解压rar</p>
+<p>QQ 鸡肋</p>
+<p>Parallels Desktop 虚拟机</p>
+<p>Pages 必备</p>
+<p>OmniFocus GTD工具，很好用</p>
+<p>Numbers 必备</p>
+<p>MySQLWorkbench 因为有了Sequel Pro,所以只用来做Data Modeling</p>
+<p>mfTuneKit 用来修改休眠模式和一些乱七八糟的选项</p>
+<p>MacUpdate Desktop 可以管理Mac App Store没有覆盖到的软件更新</p>
+<p>Keynote 必备</p>
+<p>iTerm 2 替代默认终端工具</p>
+<p>iStat Menus 锦上添花的工具，显示系统信息，还是很方便的</p>
+<p>iPhoto 必备</p>
+<p>iDocument Lite 管理PDF文档</p>
+<p>iChm 必备，看chm的</p>
+<p>Google Chrome 用不惯Safari，还是喜欢用chrome</p>
+<p>Firefox 调试专用</p>
+<p>Go2Shell 可在终端中直达Finder当前目录</p>
+<p>Evernote 必备</p>
+<p>Dropbox 必备</p>
+<p>Cinch 必备 最大化工具，功能单一，非常好用</p>
+<p>Burn 刻录软件</p>
+<p>Breeze 可以记录各应用位置，适合多显示器和大尺寸显示器使用</p>
+<p>BetterTouchTool Magic Mouse 设置用，也可以配置Touch Pad</p>
+<p>BackOff 关闭或开启iTunes的备份功能</p>
+<p>AppCleaner 删除软件的软件</p>
+<p>Alfred 必备，比spotlight好用N倍</p>
+<p>Air Video Server 偶然用用，在iPad上看高清电影。</p>
+<p>Adium IM，非常不错</p>
+<p>A Better Finder Rename 8 批量重命名工具</p>
+<p>1Password 必备，用来管理各种账号、密码、注册码和一些乱七八糟的东西，有Safari和chrome插件</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2011/07/31/73/" data-id="zbyv4w95bxvlck4p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分享/">分享</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-60" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/05/01/60/" class="article-date">
+  <time datetime="2011-05-01T08:25:47.000Z" itemprop="datePublished">May 1 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/05/01/60/">Centos 中使用setup</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装</p>
+<pre class="brush:shell">yum install setuptool</pre>
+运行setup出现错误
+> ERROR - No tool descriptions found in /etc/setuptool.d
+解决方法：
+<pre class="brush:shell">yum install system-config-securitylevel-tui system-config-network-tui ntsysv</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2011/05/01/60/" data-id="p3ay37qstjjd7449" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-55" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/04/30/55/" class="article-date">
+  <time datetime="2011-04-30T03:14:25.000Z" itemprop="datePublished">Apr 30 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/04/30/55/">Centos 编译安装nginx 1.0.0  php 5.3.6 mysql 5.5.1 memcache eaccelerator</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Centos 5.6 编译安装nginx php mysql memcache eaccelerator等软件。</p>
+
+        
+          <p class="article-more-link">
+            <a href="/2011/04/30/55/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2011/04/30/55/" data-id="m5cjtyez8jcb1mde" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-52" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/04/27/52/" class="article-date">
+  <time datetime="2011-04-27T13:46:13.000Z" itemprop="datePublished">Apr 27 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/04/27/52/">Centos环境配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>网络安装，地址填写<br>mirrors.163.com<br>/centos/5.6/os/i386/</p>
+<p>修改时区和同步时间</p>
+<p><pre class="brush:shell">yum install ntp<br>cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime<br>ntpdate us.pool.ntp.org</pre><br>安装Git及其依赖包</p>
+<p><pre class="brush:shell">yum install zlib-devel openssl-devel perl cpio expat-devel gettext-devel<br>wget -c <a href="http://kernel.org/pub/software/scm/git/git-1.7.4.5.tar.bz2" target="_blank" rel="external">http://kernel.org/pub/software/scm/git/git-1.7.4.5.tar.bz2</a><br>tar jxvf git-1.7.4.5<br>autoconf<br>./configure —with-curl=/usr/local<br>make<br>make install</pre><br>安装mysql</p>
+<p><pre class="brush:shell">yum install mysql mysql-server</pre><br>设置为启动项</p>
+<p><pre class="brush:shell">chkconfig —levels 235 mysqld on</pre><br>启动</p>
+<p><pre class="brush:shell">/etc/init.d/mysqld start</pre><br>设置密码</p>
+<p><pre class="brush:shell">mysqladmin -u root password 密码</pre><br>安装apache</p>
+<p><pre class="brush:shell">yum install httpd</pre><br>设置为启动项</p>
+<p><pre class="brush:shell">chkconfig —levels 235 httpd on</pre><br>启动</p>
+<p><pre class="brush:shell">/etc/init.d/httpd start</pre><br>安装php 5.3及扩展</p>
+<p><pre class="brush:shell">yum install php53 php53-mysql php53-gd php53-imap php53-ldap php53-xml php53-xmlrpc php53-mbstring</pre><br>配置防火墙</p>
+<p>setup Firewall设置允许www服务</p>
+<p>第三方库</p>
+<p><pre class="brush:shell">wget -c <a href="http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.i386.rpm" target="_blank" rel="external">http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.i386.rpm</a><br>rpm -ivh rpmforge-release-0.5.2-2.el5.rf.i386.rpm</pre><br>memcached</p>
+<p><pre class="brush:shell">yum install memcached —skip-broken</pre><br>启动Apache时，发现了一例错误：</p>
+<p>Starting httpd: Warning: DocumentRoot [/www/mysite] does not exist</p>
+<p>查询资料，在国外论坛上找到了答案：</p>
+<p>“Turned out to be SELINUX.<br>Edit /etc/sysconfig/selinux and change it to disabled then reboot.”</p>
+<p>即：</p>
+<p><pre class="brush:shell">vi /etc/sysconfig/selinux</pre><br>设置</p>
+<p>SELINUX=disabled</p>
+<p>然后</p>
+<p>reboot</p>
+<p>重启系统即可</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2011/04/27/52/" data-id="glb1db0tgcebz9tx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-47" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/04/20/47/" class="article-date">
+  <time datetime="2011-04-20T14:18:13.000Z" itemprop="datePublished">Apr 20 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/04/20/47/">小组级GIT服务器搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在本地生成SSH公钥：</p>
+<pre class="brush:shell">localhost:xx xlmo$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/xlmo/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/xlmo/.ssh/id_rsa.
+Your public key has been saved in /Users/xlmo/.ssh/id_rsa.pub.
+The key fingerprint is:
+xxxxx....xxxxx
+The key's randomart image is:
++--[ RSA 2048]----+
+|   .o.           |
+|  .  . .         |
+| .    o          |
+|. . .  .         |
+| . + . oS.       |
+|  o = + =        |
+| o o B *         |
+|  + o + o        |
+| .    Eo         |
++-----------------+</pre>
+传送key
+<pre class="brush:shell">scp ~/.ssh/id_rsa.pub git@服务器:/tmp/</pre>
+**登录服务器操作**
+
+新建用户
+<pre class="brush:shell">useradd git
+#注意usesradd添加的用户暂时是被封锁的，也就是说无法登录，需要设置一下密码
+passwd git</pre>
+以后ssh登录免输入密码
+<pre class="brush:shell">cat /tmp/id_rsa.pub &gt;&gt; authorized_keys</pre>
+新建版本库并初始化
+<pre class="brush:shell">mkdir /home/git/git
+cd /home/git/git/
+mkdir example.git
+cd example.git
+git --bare init</pre>
+本地使用新服务器版本库
+<pre class="brush:shell">git remote add origin git@服务器:example.git
+git push origin master</pre>
+若有问题可尝试修改下权限
+<pre class="brush:shell">chmod 755 /home/git
+chmod 700 /home/git/.ssh
+chmod 644 /home/git/.ssh/authorized_keys</pre>
+附:Centos下安装Git
+<pre class="brush:shell">wget -c http://kernel.org/pub/software/scm/git/git-1.7.4.5.tar.bz2
+tar jxvf git-1.7.4.5.tar.bz2
+cd git-1.7.4.5
+./configure --with-curl=/usr/local
+make
+make install</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2011/04/20/47/" data-id="ltpucwyiu7hjuf95" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-43" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/04/17/43/" class="article-date">
+  <time datetime="2011-04-17T14:33:36.000Z" itemprop="datePublished">Apr 17 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/04/17/43/">Mem 01</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2006年，PLU，alone、friend、安佳、大师。指战星际。精彩的解说，专业的点评，准时的见面。<br>一下子就是五年前的事情了，就是那一年，世界杯来了，PLU进入了我的视线，而我则来到了北京。现在还记得当时每天准时收看PLU的情景。现在我在北京，世界杯也刚刚过去，PLU也还存在着。可是2006年的时间在心里已经存档了、定格了，不会再发生的感情，也许永远都不会再出现的齐聚一堂的场面，遗憾。<br>可能，这就是完美。</p>
+<embed type="application/x-shockwave-flash" width="480" height="400" src="http://player.youku.com/player.php/sid/XMTc2MTkxMTI0/v.swf" quality="high" align="middle" allowscriptaccess="sameDomain">
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2011/04/17/43/" data-id="w2r7cn0k1qu85g01" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/categories/Blog/page/4/">&laquo; Prev</a><a class="page-number" href="/categories/Blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/categories/Blog/page/3/">3</a><a class="page-number" href="/categories/Blog/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/categories/Blog/page/6/">6</a><a class="page-number" href="/categories/Blog/page/7/">7</a><a class="page-number" href="/categories/Blog/page/8/">8</a><a class="extend next" rel="next" href="/categories/Blog/page/6/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">78</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BOSE/">BOSE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/">apple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ff/">ff</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iDev/">iDev</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPod/">iPod</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kindle/">kindle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/org2blog/">org2blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps3/">ps3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/smarty/">smarty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssd/">ssd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/subversion/">subversion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分享/">分享</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/创业/">创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡西欧/">卡西欧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/备份/">备份</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开源/">开源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/泰国/">泰国</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BOSE/" style="font-size: 10.00px;">BOSE</a><a href="/tags/Blog/" style="font-size: 10.00px;">Blog</a><a href="/tags/Linux/" style="font-size: 17.50px;">Linux</a><a href="/tags/Mac/" style="font-size: 20.00px;">Mac</a><a href="/tags/PHP/" style="font-size: 15.00px;">PHP</a><a href="/tags/apple/" style="font-size: 10.00px;">apple</a><a href="/tags/centos/" style="font-size: 15.00px;">centos</a><a href="/tags/emacs/" style="font-size: 20.00px;">emacs</a><a href="/tags/ff/" style="font-size: 10.00px;">ff</a><a href="/tags/git/" style="font-size: 12.50px;">git</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/iDev/" style="font-size: 10.00px;">iDev</a><a href="/tags/iOS/" style="font-size: 12.50px;">iOS</a><a href="/tags/iPhone/" style="font-size: 12.50px;">iPhone</a><a href="/tags/iPod/" style="font-size: 10.00px;">iPod</a><a href="/tags/kindle/" style="font-size: 10.00px;">kindle</a><a href="/tags/org2blog/" style="font-size: 10.00px;">org2blog</a><a href="/tags/ps3/" style="font-size: 12.50px;">ps3</a><a href="/tags/smarty/" style="font-size: 10.00px;">smarty</a><a href="/tags/ssd/" style="font-size: 10.00px;">ssd</a><a href="/tags/subversion/" style="font-size: 10.00px;">subversion</a><a href="/tags/分享/" style="font-size: 15.00px;">分享</a><a href="/tags/创业/" style="font-size: 10.00px;">创业</a><a href="/tags/卡西欧/" style="font-size: 10.00px;">卡西欧</a><a href="/tags/备份/" style="font-size: 10.00px;">备份</a><a href="/tags/开源/" style="font-size: 10.00px;">开源</a><a href="/tags/旅行/" style="font-size: 10.00px;">旅行</a><a href="/tags/泰国/" style="font-size: 10.00px;">泰国</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/10/">October 2010</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">July 2007</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">June 2007</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">May 2006</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">February 2006</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/12/16/299/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/20/387/">iPhone 6入手</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/26/372/">测试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/19/369/">八月汇报</a>
+          </li>
+        
+          <li>
+            <a href="/2014/03/29/367/">期待</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Xiaolong Mo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

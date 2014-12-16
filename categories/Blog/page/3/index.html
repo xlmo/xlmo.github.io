@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Category: Blog | xlmo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="xlmo's blog">
+<meta property="og:url" content="http://xlmo.github.io/categories/Blog/page/3/">
+<meta property="og:site_name" content="xlmo's blog">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xlmo's blog">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="xlmo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">xlmo&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://xlmo.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-256" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/11/27/256/" class="article-date">
+  <time datetime="2012-11-26T16:28:00.000Z" itemprop="datePublished">Nov 27 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/11/27/256/">Emacs里使用词典</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Emacs里调用系统的Dictionary.app,网上找了下，有这么几种实现方式：</p>
+<ol>
+<li>使用命令行”open dict:/// + word” 来调用词典APP <a href="http://larkery.tumblr.com/post/465585528/emacs-dictionary-app" target="_blank" rel="external">链接</a></li>
+<li>使用单独的python脚本dict.py来返回查询结果，单开buffer来显示结果。我使用这个方法。<br>dict.py<br><pre class="example">#!/usr/bin/python</pre></li>
+</ol>
+<p>import sys<br>from DictionaryServices import *</p>
+<p>def main():<br>    word = sys.argv[1].decode(‘utf-8’)<br>    result = DCSCopyTextDefinition(None, word, (0, len(word)))<br>    print result.encode(‘utf-8’)</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    main()<br>code:</p>
+<p><pre class="example">(defun dictionary ()<br> “dictionary.app”<br> (interactive)</pre></p>
+<p> (let ((editable (not buffer-read-only))<br>       (pt (save-excursion (mouse-set-point last-nonmenu-event)))<br>       beg end)</p>
+<p>   (if (and mark-active<br>            (&lt;= (region-beginning) pt) (&lt;= pt (region-end)) )<br>       (setq beg (region-beginning)<br>             end (region-end))<br>     (save-excursion<br>       (goto-char pt)<br>       (setq end (progn (forward-word) (point)))<br>       (setq beg (progn (backward-word) (point)))<br>       ))</p>
+<p>   (setq word (buffer-substring-no-properties beg end))<br>   (let ((win (selected-window))<br>         (tmpbuf “ <em> dict-process </em>“))<br>     (pop-to-buffer tmpbuf)<br>     (erase-buffer)<br>     (insert word “n”)<br>     (start-process “dict-process” tmpbuf “dict.py” word)<br>     (select-window win)<br>     )<br> ))<br> (define-key global-map (kbd “C-c w”) ‘dictionary)<br><a href="http://sakito.jp/mac/dictionary.html" target="_blank" rel="external">来源</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2012/11/27/256/" data-id="rm6fubqtytgiteyn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-248" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/11/24/248/" class="article-date">
+  <time datetime="2012-11-24T15:34:00.000Z" itemprop="datePublished">Nov 24 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/11/24/248/">编码风格的设定</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  之前一直没注意过，因为和人协作开发，发现存在编码排版格式不统一的问题。 </p>
+<p> 我是用emacs，tab是四个空格，这个没问题，但是缩进就不对了，而另一个人是用Zend Studio，tab和缩进都是四个空格。怎么个意思呢，而且发现有时候的缩进非常奇怪:<br>   <pre class="example">if (true)<br>    {<br>    }<br></pre>   </p>
+<p> 花了点时间想解决缩进的问题，结果只是一个风格设置的问题。。 </p>
+<p> 几种编码风格在<a href="http://en.wikipedia.org/wiki/Indent_style" target="_blank" rel="external">这里</a>, 设置的话用C-c . 或者M-x c-set-style.<a href="http://joeljding.blogspot.com/2009/07/emacs.html" target="_blank" rel="external">参考这里</a> . </p>
+<p> 更进一步自定义:<br>   <pre class="example">(c-add-style “immediate”<br>‘(“K&amp;R”<br>(c-basic-offset . 4)))<br>(setq c-default-style “immediate”)<br></pre>   </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2012/11/24/248/" data-id="l1g9dvz0pi14obv4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-222" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/11/23/222/" class="article-date">
+  <time datetime="2012-11-23T14:40:00.000Z" itemprop="datePublished">Nov 23 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/11/23/222/">从org2blog开始使用org-mode</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>貌似用Emacs的人中不用org-mode的不多，也听说过一些人是因为org-mode才开始接触emacs的，org-mode很强大我也知道，可是不知道怎么了，我就是没怎么用org。这不，现在开始想好好学学嘛。 </p>
+<p> 现在用的是org2blog,用来发博客的，因为只能发，不能从WP上将日志获取下来，找了个脚本<a href="https://dl.dropbox.com/u/988834/files/wp_to_org2blog.py" target="_blank" rel="external">wp_to_org2blog.py</a>, 这个我改了下，之前的只能将所有日志导出到一个文件，现在可以按’year-month’来建目录，然后以标题来做文件名保存。 </p>
+<p> 目前遇到的问题是 (1)行首空格搞不定 (2)换行设置了没用，手动启用有效 (3)能否直接按标题来保存文件。 </p>
+<p> 暂时先这样吧，这些问题应该随着对org-mode的了解增多会慢慢解决的。 </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2012/11/23/222/" data-id="2nokuvtxr8cjwacm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/org2blog/">org2blog</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-201" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/11/23/201/" class="article-date">
+  <time datetime="2012-11-22T17:21:37.000Z" itemprop="datePublished">Nov 23 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/11/23/201/">感恩节</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今晚搞定了AC。<br>auto-complete clang 有一个</p>
+<p><pre>  (setq ac-clang-auto-save t)</pre><br>的设置，而这个是在clang中为了自动补全而有意为之的，但是对于非c的码农来说这个就有点二了，因为这个设置会让你在触发了ac而有没有或已经补全完成了时自动将当前buffer保存，这很不和谐。<br>将ac的弹出窗口上下选择绑定到了合适的位置</p>
+<p><pre>(define-key ac-menu-map “C-n” ‘ac-next)<br>(define-key ac-menu-map “C-p” ‘ac-previous)</pre><br>这样不会不顺手了。<br>找了份yasnippet的php-mode snippets，路径也重新设置了，之前yasnippet自带的snippets目录不用了。</p>
+<p>这是我的配置(<a href="https://github.com/xlmo/prelude" target="_blank" rel="external">https://github.com/xlmo/prelude</a>),是在prelude的基础上改的，顺便说一句，<a href="http://batsov.com/prelude" target="_blank" rel="external">Emacs prelude</a>真的很棒。</p>
+<p>另外乘着黑色星期五，七折入了DEVONthink pro office 和DEVONagent pro的bundle，比原价便宜不少。之前也以bundle的方式入了sparkbox,后来感觉完全可以用DEVONthink来代替 -_-|||</p>
+<p>这一周一直在用<a href="http://www.everbox.com" target="_blank" rel="external">盛大网盘</a>,因为找到一个无损音乐的资源<a href="http://www.everbox.com/f/mKqJ211fRAFY183t9RYOEXMzDp" target="_blank" rel="external">http://www.everbox.com/f/mKqJ211fRAFY183t9RYOEXMzDp</a>，很给力，这一周都在下这个……</p>
+<p>有点心仪iPod Classic 160G 和 QC15了…… 我要淡定 -_-</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2012/11/23/201/" data-id="wp8by5pr4b7srvbv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-192" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/11/02/192/" class="article-date">
+  <time datetime="2012-11-02T04:37:12.000Z" itemprop="datePublished">Nov 2 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/11/02/192/">Kindle 4 Black 入手</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>入了Kindle 4 Black，也有叫Kindle 5的。</p>
+<p>很小，很轻，翻页很快，很满意。</p>
+<p>装了多看，非常好。这样可以同步iOS与Kindle。小说用Kindle，版面丰富的用iPad。</p>
+<p>哦，对了，还入手了new iPad 32G +4G，没错，就是在iPad 4发布前一周入的……</p>
+<p>现在手上富余的设备有iPad 1 32G wifi，初代锦书，汉王E920。</p>
+<p>入了个STM的单肩小挎包，用来放iPad和Kindle，不带MBP回家了，很舒服。</p>
+<p>新项目要开始了，接下来的时间可不轻松了。</p>
+<p><img src="http://ww1.sinaimg.cn/mw690/611bed1bjw1dygkvsqiwwj.jpg" alt="" title="包装盒"></p>
+<p><img src="http://ww3.sinaimg.cn/mw690/611bed1bjw1dygkvxbxy5j.jpg" alt="" title="开箱"></p>
+<p><img src="http://ww3.sinaimg.cn/mw690/611bed1bjw1dygkw17z7zj.jpg" alt="" title="kindle 4 black"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2012/11/02/192/" data-id="tewr7bw6ukhkuvll" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kindle/">kindle</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-183" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/08/24/183/" class="article-date">
+  <time datetime="2012-08-24T02:58:57.000Z" itemprop="datePublished">Aug 24 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/08/24/183/">入手PS Vita</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>港行黑色WiFi + 8G 卡。</p>
+<p>还有一个RO港中。</p>
+<p>感觉最吭爹的是那个网络，我擦。</p>
+<ul>
+<li>开始更新系统，需要升到1.69，需要开VPN才能升……</li>
+<li>第一次使用Near，需要开VPN改DNS才能连上。之后就不用开VPN了。</li>
+<li>装了RO后，提示有升级包。下载RO更新也要开VPN改DNS才能更新。</li>
+<li>Store倒是可以直接连上，但是速度不快。很难想象买下载版的游戏该怎么办……</li>
+<li>RO多人联机房间进不去……<br>就目前的体验来说，PS Vita的前后摄像头可以开发出不同的游戏形式的，再加上重力感应和后背触摸，以后一定会出一些新颖有趣的游戏。</li>
+</ul>
+<p>而让我更期待的，是PS Vita 上的FF，和1.8中可以玩PS 1的游戏。虽说后者在PSP上已经可以实现了，但是PS Vita上的PS 1游戏是针对该主机优化过的，效果应该要好一些吧。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2012/08/24/183/" data-id="ttv79g66qsu1z7rh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-177" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/07/26/177/" class="article-date">
+  <time datetime="2012-07-26T06:53:46.000Z" itemprop="datePublished">Jul 26 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/26/177/">升级Mountain Lion</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>花了一通宵挂机下载了Mountain Lion，花了不到三十分钟升级系统。</p>
+<ol>
+<li>没了web共享。</li>
+<li>没了X。一些软件用不了，例如Cinch。（装<a href="http://xquartz.macosforge.org/landing/" target="_blank" rel="external">xquartz</a> 即可）</li>
+<li>软件更新整合到了Mac App Store里面。</li>
+<li>新的中文输入法。一样的不好用。</li>
+<li>因为通知中心的存在，可以卸载Growl了。设置方式和iOS上的很像，没有学习成本。</li>
+<li>增加了听写功能。但是目前好像不支持中文。累死Siri，也是把语音发送给Apple，然后返回识别出的结果。</li>
+<li>新增Game Center。基本上对我没用。</li>
+<li>信息。之前Lion上有Beta的“信息”应用，现在正式版支持iMessage了。</li>
+<li>提醒事项。和iOS上的差不多。</li>
+<li>备忘录。这是把之前Mail里的备忘录单独拿出来做了一个App。</li>
+<li>分享。支持新浪微博、优酷、土豆、flickr、twitter的系统级分享。</li>
+<li>其他。相应的iPhoto/iMovie/Page/Keynote/Numbers都升级以支持Mountain Lion，并加入了iCloud支持。同时Xcode也更新到4.4了。</li>
+<li>图标细节有改变。例如废纸篓变得更高档了…… Dock App下的小圆点变成小横条了。<br>值得注意的是，10.8中Apple将Web 共享这个选项从共享设置中移除了，但是apache和php却没有一块移除，所以只要做一些小修改就能跑起来:</li>
+<li>/etc/apache2/httpd.conf 取消注释加载libphp的那一行。</li>
+<li>在/etc/apache2/users/目录下建立xx.conf,xx是你用户名。</li>
+<li><p>编辑内容</p>
+ <directory "="" users="" xx="" sites=""><br> Options -Indexes MultiViews<br>  AllowOverride All<br>  Order allow,deny<br>  Allow from all<br> </directory> 
+
+</li>
+</ol>
+<p>重启apache。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2012/07/26/177/" data-id="fglgp4e6s46flkth" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-172" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/07/18/172/" class="article-date">
+  <time datetime="2012-07-18T07:11:38.000Z" itemprop="datePublished">Jul 18 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/18/172/">近况</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>早几天终于将我唯一的一个备案域名给绑定到了SAE。流程还算顺利，时间还算给力，访问速度没得说。<br>基本上，如果不是之前将应用绑定到了海外的话，一天就可以办下来。因为要取消绑定，再重新绑定，耽误了一天。就这样也两天搞定，确切的说是两个工作日搞定。</p>
+<p>抽空看完了Objectvie C 和Cocoa 两本书，正在看iOS编程。为什么要学iOS/Mac开发呢？因为心里有一个应用的设想，一个雏形，能满足我的一个需求，打算慢慢实现这个设想。</p>
+<p>之前看个youku，机器声音巨大，拆机给风扇清理了一下，立马安静了。<br>之前换SSD的时候本来是打算把光驱卸下来换硬盘上去的，连光驱位插槽都买好了，结果工具不合适，螺丝有拧花的迹象，立马收手。乘着清理风扇的机会又对光驱下手了，<br>结果在我不屑的努力下，光驱位的两颗螺丝已经彻底磨平了。。。 至此，只能彻底打消这个主意了。</p>
+<p>现在用着<a href="http://www.sublimetext.com/" title="Sublime Text 2" target="_blank" rel="external">sublime text 2</a> 感觉还不错，虽说是收费的，但是不注册除了偶尔保存的时候提示一下要注册以外，其他都是全功能使用，基本不影响正常使用，作者还是很厚道的。</p>
+<p>说到厚道，就不得不提之前上架的Tiny Wings 2了。品质精良，趣味性和游戏性都很不错，更新的内容也挺丰富，而且并不是单独做为一个新的APP来卖，而是直接在1.0上升级而来，不用二次购买，也没有恶心的IAP，非常赞。</p>
+<p>iOS上装了百度输入法3.0，目前用着挺满意。不得不提的是果断的用Chrome for iOS替换Safari成为默认浏览器了，Chrome的标签同步太好用了。</p>
+<p>换了家SSH和手机VPN。<br>Evernote也付费了。<br>口水Macbook Pro 15 Retina Display。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2012/07/18/172/" data-id="5d5jvhv9ibxca933" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-156" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/04/01/156/" class="article-date">
+  <time datetime="2012-03-31T16:33:10.000Z" itemprop="datePublished">Apr 1 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/04/01/156/">HHKB Pro 2入手</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>花了十来天，<a href="http://xlmo.sinaapp.com/archives/147.html" title="海外代购尝试" target="_blank" rel="external">从日本亚马逊代购一个HHKB Pro 2</a>。<br>包装盒内就一个键盘和数据线，和两页纸（保修和跳线说明），一点都不啰嗦。<br>在Mac上使用需要安装一个软件，这个可以在官方网站上找到。然后设置跳线为Mac模式。<br>手感很陌生，可能是用太久薄膜键盘了，感觉很不适应。<br>或说虽然C移到了Caps的位置，但是感觉没有之前在正常键位上用得熟练，也许是还没熟悉这个键位。<br>但是C-x确实有点别扭，主要是左手小拇指和无名指的配合不够默契,而且经常弄错shift和control…… 还有~和/也一样..<br><img src="http://ww2.sinaimg.cn/mw600/611bed1bjw1drj2pybhspj.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/mw600/611bed1bjw1drj2prwze7j.jpg" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2012/04/01/156/" data-id="o8hm12621wvo75ha" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-147" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/03/19/147/" class="article-date">
+  <time datetime="2012-03-19T07:00:10.000Z" itemprop="datePublished">Mar 19 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/03/19/147/">海外代购尝试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>海外代购两个原因：</p>
+<ul>
+<li>价格比国内便宜</li>
+<li>东西国内没有，或者东西比国内安全<br><span style="line-height: 24px;">再长草很久之后，终于在昨天，通过<a href="http://www.030buy.com" target="_blank" rel="external">萌购</a>在<a href="http://www.amazon.co.jp" target="_blank" rel="external">日本亚马逊</a>购买了<a href="http://www.amazon.co.jp/PFU-Keyboard-Professional2-N%E3%82%AD%E3%83%BC%E3%83%AD%E3%83%BC%E3%83%AB%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC-PD-KB400B/dp/B000EXZ0VC/ref=sr_1_1?ie=UTF8&amp;qid=1332140149&amp;sr=8-1" target="_blank" rel="external">HHKB Pro 2</a>，单就价格来说折合人民币不到1.5K，只要不被税，肯定很划算。国内淘宝上也有1.8K的卖，但是还是抱着侥幸心里试试代购。</span></li>
+</ul>
+<p>代购进度:</p>
+<blockquote>
+<p>2012-03-18 17:35 提交订单并付款</p>
+<p>2012-03-18 22:25 已向海外商城下单，等待海外商城发货</p>
+<p>2012-03-19 11:38 海外商城已发货，等待国内仓库收货</p>
+<p>2012-03-29 16:48 商品已到达国内仓库，等待称重</p>
+<p>2012-03-29 16:48 商品已到达国内仓库，完成称重，等待支付运费</p>
+<p>2012-03-29 16:48 全部商品已到达国内仓库，完成称重，等待支付运费</p>
+<p>2012-03-30 01:04 全部商品已到达国内仓库，运费已支付，等待发货</p>
+<p>2012-03-30 14:00 已向用户发货<br>31号上午收到。<br>团发国际运费：75元<br>顺丰快递： 32元<br>总共：1491 ＋ 75 ＋ 32 ＝ 1598<br>淘宝最低也要1.8K，感觉还是很划算。</p>
+</blockquote>
+<p><img src="http://ww4.sinaimg.cn/mw600/611bed1bjw1drj2p8ympfj.jpg" alt="" title="hhkb pro2"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2012/03/19/147/" data-id="ssrusu0u8hcmrpia" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/categories/Blog/page/2/">&laquo; Prev</a><a class="page-number" href="/categories/Blog/">1</a><a class="page-number" href="/categories/Blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/categories/Blog/page/4/">4</a><a class="page-number" href="/categories/Blog/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/categories/Blog/page/8/">8</a><a class="extend next" rel="next" href="/categories/Blog/page/4/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">78</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BOSE/">BOSE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/">apple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ff/">ff</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iDev/">iDev</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPod/">iPod</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kindle/">kindle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/org2blog/">org2blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps3/">ps3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/smarty/">smarty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssd/">ssd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/subversion/">subversion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分享/">分享</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/创业/">创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡西欧/">卡西欧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/备份/">备份</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开源/">开源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/泰国/">泰国</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BOSE/" style="font-size: 10.00px;">BOSE</a><a href="/tags/Blog/" style="font-size: 10.00px;">Blog</a><a href="/tags/Linux/" style="font-size: 17.50px;">Linux</a><a href="/tags/Mac/" style="font-size: 20.00px;">Mac</a><a href="/tags/PHP/" style="font-size: 15.00px;">PHP</a><a href="/tags/apple/" style="font-size: 10.00px;">apple</a><a href="/tags/centos/" style="font-size: 15.00px;">centos</a><a href="/tags/emacs/" style="font-size: 20.00px;">emacs</a><a href="/tags/ff/" style="font-size: 10.00px;">ff</a><a href="/tags/git/" style="font-size: 12.50px;">git</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/iDev/" style="font-size: 10.00px;">iDev</a><a href="/tags/iOS/" style="font-size: 12.50px;">iOS</a><a href="/tags/iPhone/" style="font-size: 12.50px;">iPhone</a><a href="/tags/iPod/" style="font-size: 10.00px;">iPod</a><a href="/tags/kindle/" style="font-size: 10.00px;">kindle</a><a href="/tags/org2blog/" style="font-size: 10.00px;">org2blog</a><a href="/tags/ps3/" style="font-size: 12.50px;">ps3</a><a href="/tags/smarty/" style="font-size: 10.00px;">smarty</a><a href="/tags/ssd/" style="font-size: 10.00px;">ssd</a><a href="/tags/subversion/" style="font-size: 10.00px;">subversion</a><a href="/tags/分享/" style="font-size: 15.00px;">分享</a><a href="/tags/创业/" style="font-size: 10.00px;">创业</a><a href="/tags/卡西欧/" style="font-size: 10.00px;">卡西欧</a><a href="/tags/备份/" style="font-size: 10.00px;">备份</a><a href="/tags/开源/" style="font-size: 10.00px;">开源</a><a href="/tags/旅行/" style="font-size: 10.00px;">旅行</a><a href="/tags/泰国/" style="font-size: 10.00px;">泰国</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/10/">October 2010</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">July 2007</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">June 2007</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">May 2006</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">February 2006</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/12/16/299/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/20/387/">iPhone 6入手</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/26/372/">测试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/19/369/">八月汇报</a>
+          </li>
+        
+          <li>
+            <a href="/2014/03/29/367/">期待</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Xiaolong Mo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

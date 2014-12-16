@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Centos 编译安装nginx 1.0.0  php 5.3.6 mysql 5.5.1 memcache eaccelerator | xlmo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Centos 5.6 编译安装nginx php mysql memcache eaccelerator等软件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos 编译安装nginx 1.0.0  php 5.3.6 mysql 5.5.1 memcache eaccelerator">
+<meta property="og:url" content="http://xlmo.github.io/2011/04/30/55/">
+<meta property="og:site_name" content="xlmo's blog">
+<meta property="og:description" content="Centos 5.6 编译安装nginx php mysql memcache eaccelerator等软件。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Centos 编译安装nginx 1.0.0  php 5.3.6 mysql 5.5.1 memcache eaccelerator">
+<meta name="twitter:description" content="Centos 5.6 编译安装nginx php mysql memcache eaccelerator等软件。">
+
+  
+    <link rel="alternative" href="/atom.xml" title="xlmo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">xlmo&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://xlmo.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-55" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/04/30/55/" class="article-date">
+  <time datetime="2011-04-30T03:14:25.000Z" itemprop="datePublished">Apr 30 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Centos 编译安装nginx 1.0.0  php 5.3.6 mysql 5.5.1 memcache eaccelerator
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Centos 5.6 编译安装nginx php mysql memcache eaccelerator等软件。</p>
+<a id="more"></a>
+
+<p>安装编译依赖包</p>
+<p><pre class="brush:shell">yum install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers</pre><br>下载软件源码包</p>
+<p><pre class="brush:shell">wget -c <a href="http://nginx.org/download/nginx-1.0.0.tar.gz" target="_blank" rel="external">http://nginx.org/download/nginx-1.0.0.tar.gz</a><br>wget -c <a href="http://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.11.tar.gz/from/http://ftp.jaist.ac.jp/pub/mysql/" target="_blank" rel="external">http://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.11.tar.gz/from/http://ftp.jaist.ac.jp/pub/mysql/</a><br>wget -c <a href="http://www.php.net/get/php-5.3.6.tar.gz/from/this/mirror" target="_blank" rel="external">http://www.php.net/get/php-5.3.6.tar.gz/from/this/mirror</a><br>wget -c <a href="http://pecl.php.net/get/memcache-2.2.6.tgz" target="_blank" rel="external">http://pecl.php.net/get/memcache-2.2.6.tgz</a><br>wget -c <a href="http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz" target="_blank" rel="external">http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz</a><br>wget -c <a href="http://pecl.php.net/get/imagick-3.0.1.tgz" target="_blank" rel="external">http://pecl.php.net/get/imagick-3.0.1.tgz</a><br>wget -c <a href="http://bart.eaccelerator.net/source/0.9.6.1/eaccelerator-0.9.6.1.tar.bz2" target="_blank" rel="external">http://bart.eaccelerator.net/source/0.9.6.1/eaccelerator-0.9.6.1.tar.bz2</a><br>wget -c ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.12.tar.gz<br>wget -c <a href="http://downloads.sourceforge.net/project/mhash/mhash/0.9.9.9/mhash-0.9.9.9.tar.bz2?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fmhash%2Ffiles%2F&amp;ts=1304074512&amp;use_mirror=cdnetworks-kr-1" target="_blank" rel="external">http://downloads.sourceforge.net/project/mhash/mhash/0.9.9.9/mhash-0.9.9.9.tar.bz2?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fmhash%2Ffiles%2F&amp;ts=1304074512&amp;use_mirror=cdnetworks-kr-1</a><br>wget -c <a href="http://downloads.sourceforge.net/project/mcrypt/MCrypt/2.6.8/mcrypt-2.6.8.tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fmcrypt%2F&amp;ts=1304074624&amp;use_mirror=cdnetworks-kr-" target="_blank" rel="external">http://downloads.sourceforge.net/project/mcrypt/MCrypt/2.6.8/mcrypt-2.6.8.tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fmcrypt%2F&amp;ts=1304074624&amp;use_mirror=cdnetworks-kr-</a><br>wget -c <a href="http://downloads.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fmcrypt%2Ffiles%2FLibmcrypt%2F2.5.8%2F&amp;ts=1304076952&amp;use_mirror=cdnetworks-kr-1" target="_blank" rel="external">http://downloads.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fmcrypt%2Ffiles%2FLibmcrypt%2F2.5.8%2F&amp;ts=1304076952&amp;use_mirror=cdnetworks-kr-1</a><br>wget -c <a href="http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.13.1.tar.gz" target="_blank" rel="external">http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.13.1.tar.gz</a><br>wget -c ftp://ftp.kddlabs.co.jp/graphics/ImageMagick/ImageMagick-6.6.9-6.tar.gz</pre><br>编译mysql<br>需要用cmake编译，先编译安装cmake</p>
+<p><pre class="brush:shell">wget -c <a href="http://www.cmake.org/files/v2.8/cmake-2.8.4.tar.gz" target="_blank" rel="external">http://www.cmake.org/files/v2.8/cmake-2.8.4.tar.gz</a><br>wget -c <a href="http://ftp.gnu.org/gnu/bison/bison-2.4.3.tar.gz" target="_blank" rel="external">http://ftp.gnu.org/gnu/bison/bison-2.4.3.tar.gz</a></pre></p>
+<p>tar zxvf cmake-2.8.4.tar.gz<br>cd cmake-2.8.4<br>./bootstrap<br>gmake<br>gmake install</p>
+<p>tar zxvf bison-2.4.3.tar.gz<br>cd bison-2.4.3<br>./configure<br>make<br>make install<br>添加mysql用户组和用户</p>
+<p><pre class="brush:shell">/usr/sbin/groupadd mysql<br>/usr/sbin/useradd -g mysql mysql</pre><br>开始编译</p>
+<p><pre class="brush:shell">tar zxvf mysql-5.5.11.tar.gz<br>cd mysql-5.5.11</pre></p>
+<p>cmake -DCMAKE_INSTALL_PREFIX=/usr/local/webserver/mysql<br>-DMYSQL_UNIX_ADDR=/tmp/mysql.sock<br>-DWITH_MYISAM_STORAGE_ENGINE=1<br>-DWITH_INNOBASE_STORAGE_ENGINE=1<br>-DWITH_MEMORY_STORAGE_ENGINE=1<br>-DWITH_READLINE=1<br>-DENABLED_LOCAL_INFILE=1</p>
+<p>make<br>make install<br>赋予mysql权限</p>
+<p><pre class="brush:shell">chmod +w /usr/local/webserver/mysql<br>chown -R mysql:mysql /usr/local/webserver/mysql</pre><br>创建数据存储目录并给与权限属主</p>
+<p><pre class="brush:shell">mkdir -p /data0/mysql/3306/data/<br>mkdir -p /data0/mysql/3306/binlog/<br>mkdir -p /data0/mysql/3306/relaylog/<br>chown -R mysql:mysql /data0/mysql/</pre><br>以mysql帐号建立数据表</p>
+<p><pre class="brush:shell">chmod +x ./scripts/mysql_install_db<br>./scripts/mysql_install_db —basedir=/usr/local/webserver/mysql —datadir=/data0/mysql/3306/data —user=mysql</pre><br>修改配置文件</p>
+<p><pre class="brush:shell">vi /data0/mysql/3306/my.cnf</pre></p>
+<blockquote>
+<p>[client]<br>character-set-server = utf8<br>port    = 3306<br>socket  = /tmp/mysql.sock<br>[mysqld]<br>character-set-server = utf8<br>replicate-ignore-db = mysql<br>replicate-ignore-db = test<br>replicate-ignore-db = information_schema<br>user    = mysql<br>port    = 3306<br>socket  = /tmp/mysql.sock<br>basedir = /usr/local/webserver/mysql<br>datadir = /data0/mysql/3306/data<br>log-error = /data0/mysql/3306/mysql_error.log<br>pid-file = /data0/mysql/3306/mysql.pid<br>open_files_limit    = 10240<br>back_log = 600<br>max_connections = 5000<br>max_connect_errors = 6000<br>table_cache = 614<br>external-locking = FALSE<br>max_allowed_packet = 32M<br>sort_buffer_size = 1M<br>join_buffer_size = 1M<br>thread_cache_size = 300</p>
+<h1 id="thread_concurrency_=_8">thread_concurrency = 8</h1>
+<p>query_cache_size = 512M<br>query_cache_limit = 2M<br>query_cache_min_res_unit = 2k<br>default-storage-engine = MyISAM<br>thread_stack = 192K<br>transaction_isolation = READ-COMMITTED<br>tmp_table_size = 246M<br>max_heap_table_size = 246M<br>long_query_time = 3<br>log-slave-updates<br>log-bin = /data0/mysql/3306/binlog/binlog<br>binlog_cache_size = 4M<br>binlog_format = MIXED<br>max_binlog_cache_size = 8M<br>max_binlog_size = 1G<br>relay-log-index = /data0/mysql/3306/relaylog/relaylog<br>relay-log-info-file = /data0/mysql/3306/relaylog/relaylog<br>relay-log = /data0/mysql/3306/relaylog/relaylog<br>expire_logs_days = 30<br>key_buffer_size = 256M<br>read_buffer_size = 1M<br>read_rnd_buffer_size = 16M<br>bulk_insert_buffer_size = 64M<br>myisam_sort_buffer_size = 128M<br>myisam_max_sort_file_size = 10G<br>myisam_repair_threads = 1<br>myisam_recover</p>
+<p>interactive_timeout = 120<br>wait_timeout = 120</p>
+<p>skip-name-resolve</p>
+<h1 id="master-connect-retry_=_10">master-connect-retry = 10</h1>
+<p>slave-skip-errors = 1032,1062,126,1114,1146,1048,1396</p>
+<h1 id="master-host_=_192-168-1-2">master-host     =   192.168.1.2</h1>
+<h1 id="master-user_=_username">master-user     =   username</h1>
+<h1 id="master-password_=_password">master-password =   password</h1>
+<h1 id="master-port_=_3306">master-port     =  3306</h1>
+<p>server-id = 1</p>
+<p>innodb_additional_mem_pool_size = 16M<br>innodb_buffer_pool_size = 512M<br>innodb_data_file_path = ibdata1:256M:autoextend<br>innodb_file_io_threads = 4<br>innodb_thread_concurrency = 8<br>innodb_flush_log_at_trx_commit = 2<br>innodb_log_buffer_size = 16M<br>innodb_log_file_size = 128M<br>innodb_log_files_in_group = 3<br>innodb_max_dirty_pages_pct = 90<br>innodb_lock_wait_timeout = 120<br>innodb_file_per_table = 0</p>
+<h1 id="log-slow-queries_=_/data0/mysql/3306/slow-log">log-slow-queries = /data0/mysql/3306/slow.log</h1>
+<h1 id="long_query_time_=_10">long_query_time = 10</h1>
+<p>[mysqldump]<br>quick<br>max_allowed_packet = 32M</p>
+<h2 id="end_of_file">end of file</h2>
+<p>创建管理脚本<br>vi /data0/mysql/3306/mysql</p>
+<p><pre class="brush:shell">#!/bin/sh</pre></p>
+</blockquote>
+<p>mysql_port=3306<br>mysql_username=”admin”<br>mysql_password=”12345678”</p>
+<p>function_start_mysql()<br>{<br>printf “Starting MySQL…n”<br>/bin/sh /usr/local/webserver/mysql/bin/mysqld_safe —defaults-file=/data0/mysql/${mysql_port}/my.cnf 2&gt;&amp;1 &gt; /dev/null &amp;<br>}</p>
+<p>function_stop_mysql()<br>{<br>printf “Stoping MySQL…n”<br>/usr/local/webserver/mysql/bin/mysqladmin -u ${mysql_username} -p${mysql_password} -S /tmp/mysql.sock shutdown<br>}</p>
+<p>function_restart_mysql()<br>{<br>printf “Restarting MySQL…n”<br>function_stop_mysql<br>sleep 5<br>function_start_mysql<br>}</p>
+<p>function_kill_mysql()<br>{<br>kill -9 $(ps -ef | grep ‘bin/mysqld_safe’ | grep ${mysql_port} | awk ‘{printf $2}’)<br>kill -9 $(ps -ef | grep ‘libexec/mysqld’ | grep ${mysql_port} | awk ‘{printf $2}’)<br>}</p>
+<p>if [ “$1” = “start” ]; then<br>function_start_mysql<br>elif [ “$1” = “stop” ]; then<br>function_stop_mysql<br>elif [ “$1” = “restart” ]; then<br>function_restart_mysql<br>elif [ “$1” = “kill” ]; then<br>function_kill_mysql<br>else<br>printf “Usage: /data0/mysql/${mysql_port}/mysql {start|stop|restart|kill}n”<br>fi<br>赋予执行权限</p>
+<p><pre class="brush:shell">chmod +x /data0/mysql/3306/mysql</pre><br>启动</p>
+<p><pre class="brush:shell">/data0/mysql/3306/mysql start</pre><br>进入mysql管理</p>
+<p><pre class="brush:shell">/usr/local/webserver/mysql/bin/mysql -u root -p -S /tmp/mysql.sock</pre><br>设置用户</p>
+<blockquote>
+<p>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘admin’@’localhost’ IDENTIFIED BY ‘12345678’;<br>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘admin’@’127.0.0.1’ IDENTIFIED BY ‘12345678’;<br>编译安装PHP</p>
+</blockquote>
+<p>编译安装依赖包</p>
+<p><pre class="brush:shell">tar zxvf libiconv-1.13.1.tar.gz<br>cd libiconv-1.13.1/<br>./configure —prefix=/usr/local<br>make<br>make install</pre></p>
+<p>tar zxvf libmcrypt-2.5.8.tar.gz<br>cd libmcrypt-2.5.8/<br>./configure<br>make<br>make install<br>/sbin/ldconfig<br>cd libltdl/<br>./configure —enable-ltdl-install<br>make<br>make install<br>cd ../../</p>
+<p>tar jxvf mhash-0.9.9.9.tar.bz2<br>cd mhash-0.9.9.9/<br>./configure<br>make<br>make install<br>cd ../</p>
+<p>ln -s /usr/local/lib/libmcrypt.la /usr/lib/libmcrypt.la<br>ln -s /usr/local/lib/libmcrypt.so /usr/lib/libmcrypt.so<br>ln -s /usr/local/lib/libmcrypt.so.4 /usr/lib/libmcrypt.so.4<br>ln -s /usr/local/lib/libmcrypt.so.4.4.8 /usr/lib/libmcrypt.so.4.4.8<br>ln -s /usr/local/lib/libmhash.a /usr/lib/libmhash.a<br>ln -s /usr/local/lib/libmhash.la /usr/lib/libmhash.la<br>ln -s /usr/local/lib/libmhash.so /usr/lib/libmhash.so<br>ln -s /usr/local/lib/libmhash.so.2 /usr/lib/libmhash.so.2<br>ln -s /usr/local/lib/libmhash.so.2.0.1 /usr/lib/libmhash.so.2.0.1<br>ln -s /usr/local/bin/libmcrypt-config /usr/bin/libmcrypt-config</p>
+<p>tar zxvf mcrypt-2.6.8.tar.gz<br>cd mcrypt-2.6.8/<br>/sbin/ldconfig<br>./configure<br>make<br>make install<br>cd ../<br>开始编译安装php</p>
+<p><pre class="brush:shell">tar zxvf php-5.3.6.tar.gz<br>cd php-5.3.6<br>./configure —prefix=/usr/local/webserver/php —with-config-file-path=/usr/local/webserver/php/etc —with-mysql=/usr/local/webserver/mysql —with-mysqli=/usr/local/webserver/mysql/bin/mysql_config —with-iconv-dir=/usr/local —with-freetype-dir —with-jpeg-dir —with-png-dir —with-zlib —with-libxml-dir=/usr —enable-xml —disable-rpath —enable-discard-path —enable-safe-mode —enable-bcmath —enable-shmop —enable-sysvsem —enable-inline-optimization —with-curl —with-curlwrappers —enable-mbregex —enable-fastcgi —enable-fpm —enable-force-cgi-redirect —enable-mbstring —with-mcrypt —with-gd —enable-gd-native-ttf —with-openssl —with-mhash —enable-pcntl —enable-sockets —with-ldap —with-ldap-sasl —with-xmlrpc —enable-zip —enable-soap —without-pear<br>make ZEND_EXTRA_LIBS=’-liconv’</pre><br>遇到问题：</p>
+<blockquote>
+<p>/root/source/php-5.3.6/sapi/cli/php: error while loading shared libraries: libmysqlclient.so.18: cannot open shared object file: No such file or directory<br>make: <em>*</em> [ext/phar/phar.php] Error 127<br>解决：</p>
+<p><pre class="brush:shell">ln -s /usr/local/webserver/mysql/lib/libmysqlclient.so.18 /usr/lib/</pre></p>
+<p><pre class="brush:shell">make install</pre><br>遇到问题：<br>cp: cannot stat `ext/phar/phar.phar’: No such file or directory<br>make: <em>*</em> [install-pharcmd] Error 1<br>解决： configure时加上参数 —without-pear</p>
+<p><pre class="brush:shell">cp php.ini-production /usr/local/webserver/php/etc/php.ini<br>cp -f sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm<br>chmod 755 /etc/init.d/php-fpm</pre><br>安装php扩展包</p>
+<p><pre class="brush:shell">tar zxvf memcache-2.2.6.tgz<br>cd memcache-2.2.6/<br>/usr/local/webserver/php/bin/phpize<br>./configure —with-php-config=/usr/local/webserver/php/bin/php-config<br>make<br>make install<br>cd ../</pre></p>
+</blockquote>
+<p>tar jxvf eaccelerator-0.9.6.1.tar.bz2<br>cd eaccelerator-0.9.6.1/<br>/usr/local/webserver/php/bin/phpize<br>./configure —enable-eaccelerator=shared —with-php-config=/usr/local/webserver/php/bin/php-config<br>make<br>make install<br>cd ../</p>
+<p>tar zxvf PDO_MYSQL-1.0.2.tgz<br>cd PDO_MYSQL-1.0.2/<br>/usr/local/webserver/php/bin/phpize<br>./configure —with-php-config=/usr/local/webserver/php/bin/php-config —with-pdo-mysql=/usr/local/webserver/mysql<br>make<br>make install<br>cd ../</p>
+<p>tar zxvf ImageMagick-6.6.9-6.tar.gz<br>cd ImageMagick-6.6.9-6<br>./configure<br>make<br>make install<br>cd ../</p>
+<p>tar zxvf imagick-3.0.1.tgz<br>cd imagick-3.0.1/<br>/usr/local/webserver/php/bin/phpize<br>./configure —with-php-config=/usr/local/webserver/php/bin/php-config<br>make<br>make install<br>cd ../<br>修改php.ini文件<br>/usr/local/webserver/php/etc/php.ini中的extension_dir = “./“修改为extension_dir = “/usr/local/webserver/php/lib/php/extensions/no-debug-non-zts-20090626/“<br>添加：</p>
+<blockquote>
+<p>extension = “memcache.so”<br>extension = “pdo_mysql.so”<br>extension = “imagick.so”<br>修改<br>output_buffering = On<br>cgi.fix_pathinfo=0<br>修改为cgi.fix_pathinfo=0，防止Nginx文件类型错误解析漏洞。<br>配置eAccelerator</p>
+<p><pre class="brush:shell">mkdir -p /usr/local/webserver/eaccelerator_cache<br>vi /usr/local/webserver/php/etc/php.ini</pre><br>[eaccelerator]<br>zend_extension=”/usr/local/webserver/php/lib/php/extensions/no-debug-non-zts-20090626/eaccelerator.so”<br>eaccelerator.shm_size=”64”<br>eaccelerator.cache_dir=”/usr/local/webserver/eaccelerator_cache”<br>eaccelerator.enable=”1”<br>eaccelerator.optimizer=”1”<br>eaccelerator.check_mtime=”1”<br>eaccelerator.debug=”0”<br>eaccelerator.filter=””<br>eaccelerator.shm_max=”0”<br>eaccelerator.shm_ttl=”3600”<br>eaccelerator.shm_prune_period=”3600”<br>eaccelerator.shm_only=”0”<br>eaccelerator.compress=”1”<br>eaccelerator.compress_level=”9”<br>添加网站用户组及用户，并创建web目录，给与权限</p>
+<p><pre class="brush:shell">/usr/sbin/groupadd www<br>/usr/sbin/useradd -g www www<br>mkdir -p /data0/htdocs/www<br>chmod +w /data0/htdocs/www<br>chown -R www:www /data0/htdocs/www</pre><br>创建php-fpm配置文件（php-fpm是为PHP打的一个FastCGI管理补丁，可以平滑变更php.ini配置而无需重启php-cgi）：<br>在/usr/local/webserver/php/etc/目录中创建php-fpm.conf文件：</p>
+<p><pre class="brush:shell">rm -f /usr/local/webserver/php/etc/php-fpm.conf<br>vi /usr/local/webserver/php/etc/php-fpm.conf</pre><br>;;;;;;;;;;;;;;;;;;;;;<br>; FPM Configuration ;<br>;;;;;;;;;;;;;;;;;;;;;</p>
+<p>; All relative paths in this configuration file are relative to PHP’s install<br>; prefix (/usr/local/webserver/php). This prefix can be dynamicaly changed by using the<br>; ‘-p’ argument from the command line.</p>
+<p>; Include one or more files. If glob(3) exists, it is used to include a bunch of<br>; files from a glob(3) pattern. This directive can be used everywhere in the<br>; file.<br>; Relative path can also be used. They will be prefixed by:<br>;  - the global prefix if it’s been set (-p arguement)<br>;  - /usr/local/webserver/php otherwise<br>;include=etc/fpm.d/*.conf</p>
+<p>;;;;;;;;;;;;;;;;;;<br>; Global Options ;<br>;;;;;;;;;;;;;;;;;;</p>
+<p>[global]<br>; Pid file<br>; Note: the default prefix is /usr/local/webserver/php/var<br>; Default Value: none<br>;pid = run/php-fpm.pid<br>pid = /usr/local/webserver/php/var/run/php-fpm.pid</p>
+<p>; Error log file<br>; Note: the default prefix is /usr/local/webserver/php/var<br>; Default Value: log/php-fpm.log<br>;error_log = log/php-fpm.log<br>error_log = /usr/local/webserver/php/logs/php-fpm.log</p>
+<p>; Log level<br>; Possible Values: alert, error, warning, notice, debug<br>; Default Value: notice<br>log_level = notice</p>
+<p>; If this number of child processes exit with SIGSEGV or SIGBUS within the time<br>; interval set by emergency_restart_interval then FPM will restart. A value<br>; of ‘0’ means ‘Off’.<br>; Default Value: 0<br>;emergency_restart_threshold = 0<br>emergency_restart_threshold = 10</p>
+<p>; Interval of time used by emergency_restart_interval to determine when<br>; a graceful restart will be initiated.  This can be useful to work around<br>; accidental corruptions in an accelerator’s shared memory.<br>; Available Units: s(econds), m(inutes), h(ours), or d(ays)<br>; Default Unit: seconds<br>; Default Value: 0<br>;emergency_restart_interval = 0<br>emergency_restart_interval = 1m</p>
+<p>; Time limit for child processes to wait for a reaction on signals from master.<br>; Available units: s(econds), m(inutes), h(ours), or d(ays)<br>; Default Unit: seconds<br>; Default Value: 0<br>;process_control_timeout = 0<br>process_control_timeout = 5s</p>
+<p>; Send FPM to background. Set to ‘no’ to keep FPM in foreground for debugging.<br>; Default Value: yes<br>daemonize = yes</p>
+<p>;;;;;;;;;;;;;;;;;;;;<br>; Pool Definitions ;<br>;;;;;;;;;;;;;;;;;;;;</p>
+<p>; Multiple pools of child processes may be started with different listening<br>; ports and different management options.  The name of the pool will be<br>; used in logs and stats. There is no limitation on the number of pools which<br>; FPM can handle. Your system will tell you anyway :)</p>
+<p>; Start a new pool named ‘www’.<br>; the variable $pool can we used in any directive and will be replaced by the<br>; pool name (‘www’ here)<br>[www]</p>
+<p>; Per pool prefix<br>; It only applies on the following directives:<br>; - ‘slowlog’<br>; - ‘listen’ (unixsocket)<br>; - ‘chroot’<br>; - ‘chdir’<br>; - ‘php_values’<br>; - ‘php_admin_values’<br>; When not set, the global prefix (or /usr/local/webserver/php) applies instead.<br>; Note: This directive can also be relative to the global prefix.<br>; Default Value: none<br>;prefix = /path/to/pools/$pool</p>
+<p>; The address on which to accept FastCGI requests.<br>; Valid syntaxes are:<br>;   ‘ip.add.re.ss:port’    - to listen on a TCP socket to a specific address on<br>;                            a specific port;<br>;   ‘port’                 - to listen on a TCP socket to all addresses on a<br>;                            specific port;<br>;   ‘/path/to/unix/socket’ - to listen on a unix socket.<br>; Note: This value is mandatory.<br>listen = 127.0.0.1:9000</p>
+<p>; Set listen(2) backlog. A value of ‘-1’ means unlimited.<br>; Default Value: 128 (-1 on FreeBSD and OpenBSD)<br>listen.backlog = -1</p>
+<p>; List of ipv4 addresses of FastCGI clients which are allowed to connect.<br>; Equivalent to the FCGI_WEB_SERVER_ADDRS environment variable in the original<br>; PHP FCGI (5.2.2+). Makes sense only with a tcp listening socket. Each address<br>; must be separated by a comma. If this value is left blank, connections will be<br>; accepted from any ip address.<br>; Default Value: any<br>listen.allowed_clients = 127.0.0.1</p>
+<p>; Set permissions for unix socket, if one is used. In Linux, read/write<br>; permissions must be set in order to allow connections from a web server. Many<br>; BSD-derived systems allow connections regardless of permissions.<br>; Default Values: user and group are set as the running user<br>;                 mode is set to 0666<br>listen.owner =<br>listen.group =<br>listen.mode = 0666</p>
+<p>; Unix user/group of processes<br>; Note: The user is mandatory. If the group is not set, the default user’s group<br>;       will be used.<br>user = www<br>group = www</p>
+<p>; Choose how the process manager will control the number of child processes.<br>; Possible Values:<br>;   static  - a fixed number (pm.max_children) of child processes;<br>;   dynamic - the number of child processes are set dynamically based on the<br>;             following directives:<br>;             pm.max_children      - the maximum number of children that can<br>;                                    be alive at the same time.<br>;             pm.start_servers     - the number of children created on startup.<br>;             pm.min_spare_servers - the minimum number of children in ‘idle’<br>;                                    state (waiting to process). If the number<br>;                                    of ‘idle’ processes is less than this<br>;                                    number then some children will be created.<br>;             pm.max_spare_servers - the maximum number of children in ‘idle’<br>;                                    state (waiting to process). If the number<br>;                                    of ‘idle’ processes is greater than this<br>;                                    number then some children will be killed.<br>; Note: This value is mandatory.<br>pm = static</p>
+<p>; The number of child processes to be created when pm is set to ‘static’ and the<br>; maximum number of child processes to be created when pm is set to ‘dynamic’.<br>; This value sets the limit on the number of simultaneous requests that will be<br>; served. Equivalent to the ApacheMaxClients directive with mpm_prefork.<br>; Equivalent to the PHP_FCGI_CHILDREN environment variable in the original PHP<br>; CGI.<br>; Note: Used when pm is set to either ‘static’ or ‘dynamic’<br>; Note: This value is mandatory.<br>pm.max_children = 128</p>
+<p>; The number of child processes created on startup.<br>; Note: Used only when pm is set to ‘dynamic’<br>; Default Value: min_spare_servers + (max_spare_servers - min_spare_servers) / 2<br>pm.start_servers = 20</p>
+<p>; The desired minimum number of idle server processes.<br>; Note: Used only when pm is set to ‘dynamic’<br>; Note: Mandatory when pm is set to ‘dynamic’<br>pm.min_spare_servers = 5</p>
+<p>; The desired maximum number of idle server processes.<br>; Note: Used only when pm is set to ‘dynamic’<br>; Note: Mandatory when pm is set to ‘dynamic’<br>pm.max_spare_servers = 35<br>; The number of requests each child process should execute before respawning.<br>; This can be useful to work around memory leaks in 3rd party libraries. For<br>; endless request processing specify ‘0’. Equivalent to PHP_FCGI_MAX_REQUESTS.<br>; Default Value: 0<br>pm.max_requests = 1024</p>
+<p>; The URI to view the FPM status page. If this value is not set, no URI will be<br>; recognized as a status page. By default, the status page shows the following<br>; information:<br>;   accepted conn        - the number of request accepted by the pool;<br>;   pool                 - the name of the pool;<br>;   process manager      - static or dynamic;<br>;   idle processes       - the number of idle processes;<br>;   active processes     - the number of active processes;<br>;   total processes      - the number of idle + active processes.<br>;   max children reached - number of times, the process limit has been reached,<br>;                          when pm tries to start more children (works only for<br>;                          pm ‘dynamic’)<br>; The values of ‘idle processes’, ‘active processes’ and ‘total processes’ are<br>; updated each second. The value of ‘accepted conn’ is updated in real time.<br>; Example output:<br>;   accepted conn:        12073<br>;   pool:                 www<br>;   process manager:      static<br>;   idle processes:       35<br>;   active processes:     65<br>;   total processes:      100<br>;   max children reached: 1<br>; By default the status page output is formatted as text/plain. Passing either<br>; ‘html’ or ‘json’ as a query string will return the corresponding output<br>; syntax. Example:<br>;   <a href="http://www.foo.bar/status" target="_blank" rel="external">http://www.foo.bar/status</a><br>;   <a href="http://www.foo.bar/status?json" target="_blank" rel="external">http://www.foo.bar/status?json</a><br>;   <a href="http://www.foo.bar/status?html" target="_blank" rel="external">http://www.foo.bar/status?html</a><br>; Note: The value must start with a leading slash (/). The value can be<br>;       anything, but it may not be a good idea to use the .php extension or it<br>;       may conflict with a real PHP file.<br>; Default Value: not set<br>;pm.status_path = /status</p>
+<p>; The ping URI to call the monitoring page of FPM. If this value is not set, no<br>; URI will be recognized as a ping page. This could be used to test from outside<br>; that FPM is alive and responding, or to<br>; - create a graph of FPM availability (rrd or such);<br>; - remove a server from a group if it is not responding (load balancing);<br>; - trigger alerts for the operating team (24/7).<br>; Note: The value must start with a leading slash (/). The value can be<br>;       anything, but it may not be a good idea to use the .php extension or it<br>;       may conflict with a real PHP file.<br>; Default Value: not set<br>;ping.path = /ping</p>
+<p>; This directive may be used to customize the response of a ping request. The<br>; response is formatted as text/plain with a 200 response code.<br>; Default Value: pong<br>;ping.response = pong</p>
+<p>; The timeout for serving a single request after which the worker process will<br>; be killed. This option should be used when the ‘max_execution_time’ ini option<br>; does not stop script execution for some reason. A value of ‘0’ means ‘off’.<br>; Available units: s(econds)(default), m(inutes), h(ours), or d(ays)<br>; Default Value: 0<br>request_terminate_timeout = 0</p>
+<p>; The timeout for serving a single request after which a PHP backtrace will be<br>; dumped to the ‘slowlog’ file. A value of ‘0s’ means ‘off’.<br>; Available units: s(econds)(default), m(inutes), h(ours), or d(ays)<br>; Default Value: 0<br>request_slowlog_timeout = 0s</p>
+<p>; The log file for slow requests<br>; Default Value: not set<br>; Note: slowlog is mandatory if request_slowlog_timeout is set<br>;slowlog = log/$pool.log.slow<br>slowlog = logs/slow.log</p>
+<p>; Set open file descriptor rlimit.<br>; Default Value: system defined value<br>rlimit_files = 65535</p>
+<p>; Set max core size rlimit.<br>; Possible Values: ‘unlimited’ or an integer greater or equal to 0<br>; Default Value: system defined value<br>rlimit_core = 0</p>
+<p>; Chroot to this directory at the start. This value must be defined as an<br>; absolute path. When this value is not set, chroot is not used.<br>; Note: you can prefix with ‘$prefix’ to chroot to the pool prefix or one<br>; of its subdirectories. If the pool prefix is not set, the global prefix<br>; will be used instead.<br>; Note: chrooting is a great security feature and should be used whenever<br>;       possible. However, all PHP paths will be relative to the chroot<br>;       (error_log, sessions.save_path, …).<br>; Default Value: not set<br>chroot =</p>
+<p>; Chdir to this directory at the start.<br>; Note: relative path can be used.<br>; Default Value: current directory or / when chroot<br>;chdir = /var/www<br>chdir =</p>
+<p>; Redirect worker stdout and stderr into main error log. If not set, stdout and<br>; stderr will be redirected to /dev/null according to FastCGI specs.<br>; Note: on highloaded environement, this can cause some delay in the page<br>; process time (several ms).<br>; Default Value: no<br>catch_workers_output = yes</p>
+<p>; Pass environment variables like LD<em>LIBRARY_PATH. All $VARIABLEs are taken from<br>; the current environment.<br>; Default Value: clean env<br>env[HOSTNAME] = $HOSTNAME<br>env[PATH] = /usr/local/bin:/usr/bin:/bin<br>env[TMP] = /tmp<br>env[TMPDIR] = /tmp<br>env[TEMP] = /tmp<br>env[OSTYPE] = $OSTYPE<br>env[MACHTYPE] = $MACHTYPE<br>env[MALLOC_CHECK</em>] = 2</p>
+<p>; Additional php.ini defines, specific to this pool of workers. These settings<br>; overwrite the values previously defined in the php.ini. The directives are the<br>; same as the PHP SAPI:<br>;   php<em>value/php_flag             - you can set classic ini defines which can<br>;                                    be overwritten from PHP call ‘ini_set’.<br>;   php_admin_value/php_admin_flag - these directives won’t be overwritten by<br>;                                     PHP call ‘ini_set’<br>; For php</em>*fl<br>; Defining ‘extension’ will load the corresponding shared extension from<br>; extension_dir. Defining ‘disable_functions’ or ‘disable_classes’ will not<br>; overwrite previously defined php.ini values, but will append the new value<br>; instead.</p>
+<p>; Note: path INI options can be relative and will be expanded with the prefix<br>; (pool, global or /usr/local/webserver/php)</p>
+<p>; Default Value: nothing is defined by default except the values in php.ini and<br>;                specified at startup with the -d argument<br>;php_admin_value[sendmail_path] = /usr/sbin/sendmail -t -i -f www@my.domain.com<br>;php_flag[display_errors] = off<br>;php_admin_value[error_log] = /var/log/fpm-php.www.log<br>;php_admin_flag[log_errors] = on<br>;php_admin_value[memory_limit] = 32M<br>ag, valid values are on, off, 1, 0, true, false, yes or no.<br>创建目录</p>
+<p><pre class="brush:shell">mkdir -p /usr/local/webserver/php/var/run/<br>mkdir /usr/local/webserver/php/logs</pre><br>启动</p>
+<p><pre class="brush:shell">ulimit -SHn 65535<br>/etc/init.d/php-fpm start<br>/sbin/chkconfig —add php-fpm (添加到开机服务列表)<br>/sbin/chkconfig php-fpm on<br>/etc/init.d/php-fpm reload</pre><br>安装nginx</p>
+<p><pre class="brush:shell">tar zxvf pcre-8.12.tar.gz<br>cd pcre-8.12/<br>./configure<br>make &amp;&amp; make install<br>cd ../</pre></p>
+</blockquote>
+<p>tar zxvf nginx-1.0.0.tar.gz<br>cd nginx-1.0.0/<br>./configure —user=www —group=www —prefix=/usr/local/webserver/nginx —with-http_stub_status_module —with-http_ssl_module<br>make &amp;&amp; make install<br>cd ../<br>创建日志目录</p>
+<p><pre class="brush:shell">mkdir -p /data1/logs<br>chmod +w /data1/logs<br>chown -R www:www /data1/logs</pre><br>修改配置：（最新的nginx使用ini格式，不再是之前的xml格式了）</p>
+<p><pre class="brush:shell">rm -f /usr/local/webserver/nginx/conf/nginx.conf<br>vi /usr/local/webserver/nginx/conf/nginx.conf</pre></p>
+<blockquote>
+<p>user  www www;</p>
+<p>worker_processes 8;</p>
+<p>error_log  /data1/logs/nginx_error.log  crit;</p>
+<p>pid        /usr/local/webserver/nginx/nginx.pid;</p>
+<h1 id="Specifies_the_value_for_maximum_file_descriptors_that_can_be_opened_by_this_process-">Specifies the value for maximum file descriptors that can be opened by this process.</h1>
+<p>worker_rlimit_nofile 65535;</p>
+<p>events<br>{<br>use epoll;<br>worker_connections 65535;<br>}</p>
+<p>http<br>{<br>include       mime.types;<br>default_type  application/octet-stream;</p>
+<h1 id="charset_gb2312;">charset  gb2312;</h1>
+<p>server_names_hash_bucket_size 128;<br>client_header_buffer_size 32k;<br>large_client_header_buffers 4 32k;<br>client_max_body_size 8m;</p>
+<p>sendfile on;<br>tcp_nopush     on;</p>
+<p>keepalive_timeout 60;</p>
+<p>tcp_nodelay on;</p>
+<p>fastcgi_connect_timeout 300;<br>fastcgi_send_timeout 300;<br>fastcgi_read_timeout 300;<br>fastcgi_buffer_size 64k;<br>fastcgi_buffers 4 64k;<br>fastcgi_busy_buffers_size 128k;<br>fastcgi_temp_file_write_size 128k;</p>
+<p>gzip on;<br>gzip_min_length  1k;<br>gzip_buffers     4 16k;<br>gzip_http_version 1.0;<br>gzip_comp_level 2;<br>gzip_types       text/plain application/x-javascript text/css application/xml;<br>gzip_vary on;</p>
+<h1 id="limit_zone_crawler_$binary_remote_addr_10m;">limit_zone  crawler  $binary_remote_addr  10m;</h1>
+<p>server<br>{<br>listen       80;<br>server_name  yourserver;<br>index index.html index.htm index.php;<br>root  /data0/htdocs/www;</p>
+<h1 id="limit_conn_crawler_20;">limit_conn   crawler  20;</h1>
+<p>location ~ .*.(php|php5)?$<br>{</p>
+<h1 id="fastcgi_pass_unix:/tmp/php-cgi-sock;">fastcgi_pass  unix:/tmp/php-cgi.sock;</h1>
+<p>fastcgi_pass  127.0.0.1:9000;<br>fastcgi_index index.php;<br>include fcgi.conf;<br>}</p>
+<p>location ~ .*.(gif|jpg|jpeg|png|bmp|swf)$<br>{<br>expires      30d;<br>}</p>
+<p>location ~ .*.(js|css)?$<br>{<br>expires      1h;<br>}</p>
+<p>log_format  access  ‘$remote_addr - $remote_user [$time_local] “$request” ‘<br>‘$status $body_bytes_sent “$http_referer” ‘<br>‘“$http_user_agent” $http_x_forwarded_for’;<br>access_log  /data1/logs/access.log  access;<br>}<br>}<br>修改fcgi配置</p>
+<p><pre class="brush:shell">vi /usr/local/webserver/nginx/conf/fcgi.conf</pre><br>fastcgi_param  GATEWAY_INTERFACE  CGI/1.1;<br>fastcgi_param  SERVER_SOFTWARE    nginx;</p>
+<p>fastcgi_param  QUERY_STRING       $query_string;<br>fastcgi_param  REQUEST_METHOD     $request_method;<br>fastcgi_param  CONTENT_TYPE       $content_type;<br>fastcgi_param  CONTENT_LENGTH     $content_length;</p>
+<p>fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;<br>fastcgi_param  SCRIPT_NAME        $fastcgi_script_name;<br>fastcgi_param  REQUEST_URI        $request_uri;<br>fastcgi_param  DOCUMENT_URI       $document_uri;<br>fastcgi_param  DOCUMENT_ROOT      $document_root;<br>fastcgi_param  SERVER_PROTOCOL    $server_protocol;</p>
+<p>fastcgi_param  REMOTE_ADDR        $remote_addr;<br>fastcgi_param  REMOTE_PORT        $remote_port;<br>fastcgi_param  SERVER_ADDR        $server_addr;<br>fastcgi_param  SERVER_PORT        $server_port;<br>fastcgi_param  SERVER_NAME        $server_name;</p>
+<h1 id="PHP_only,_required_if_PHP_was_built_with_—enable-force-cgi-redirect">PHP only, required if PHP was built with —enable-force-cgi-redirect</h1>
+<p>fastcgi_param  REDIRECT_STATUS    200;<br>启动nginx</p>
+<p><pre class="brush:shell">ulimit -SHn 65535<br>/usr/local/webserver/nginx/sbin/nginx</pre><br>开机自启动</p>
+<p><pre class="brush:shell">vi /etc/rc.local</pre><br>末尾追加<br>ulimit -SHn 65535<br>/usr/local/webserver/nginx/sbin/nginx<br>内核优化</p>
+<p><pre class="brush:shell">vi /etc/sysctl.conf</pre><br>添加<br>net.ipv4.tcp_max_syn_backlog = 65536<br>net.core.netdev_max_backlog =  32768<br>net.core.somaxconn = 32768</p>
+<p>net.core.wmem_default = 8388608<br>net.core.rmem_default = 8388608<br>net.core.rmem_max = 16777216<br>net.core.wmem_max = 16777216</p>
+<p>net.ipv4.tcp_timestamps = 0<br>net.ipv4.tcp_synack_retries = 2<br>net.ipv4.tcp_syn_retries = 2</p>
+<p>net.ipv4.tcp_tw_recycle = 1</p>
+<h1 id="net-ipv4-tcp_tw_len_=_1">net.ipv4.tcp_tw_len = 1</h1>
+<p>net.ipv4.tcp_tw_reuse = 1</p>
+<p>net.ipv4.tcp_mem = 94500000 915000000 927000000<br>net.ipv4.tcp_max_orphans = 3276800</p>
+<h1 id="net-ipv4-tcp_fin_timeout_=_30">net.ipv4.tcp_fin_timeout = 30</h1>
+<h1 id="net-ipv4-tcp_keepalive_time_=_120">net.ipv4.tcp_keepalive_time = 120</h1>
+<p>net.ipv4.ip_local_port_range = 1024  65535<br>配置生效</p>
+<p><pre class="brush:shell">/sbin/sysctl -p</pre><br>测试配置语法<br>/usr/local/webserver/nginx/sbin/nginx -t<br>平滑重启<br>/usr/local/webserver/nginx/sbin/nginx -s reload<br>CodeIgniter path 处理<br>location ~ .*.php<br>{</p>
+<h1 id="fastcgi_pass_unix:/tmp/php-cgi-sock;-1">fastcgi_pass  unix:/tmp/php-cgi.sock;</h1>
+<p>fastcgi_pass  127.0.0.1:9000;<br>fastcgi_index index.php;<br>fastcgi_param  SCRIPT_FILENAME  /data0/htdocs/lht$fastcgi_script_name;<br>fastcgi_split_path_info ^(.+.php)(.*)$;<br>fastcgi_param PATH_INFO $fastcgi_path_info;<br>include fcgi.conf;<br>}</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2011/04/30/55/" data-id="m5cjtyez8jcb1mde" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2011/05/01/60/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Centos 中使用setup
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2011/04/27/52/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Centos环境配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">78</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BOSE/">BOSE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/">apple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ff/">ff</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iDev/">iDev</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPod/">iPod</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kindle/">kindle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/org2blog/">org2blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps3/">ps3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/smarty/">smarty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssd/">ssd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/subversion/">subversion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分享/">分享</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/创业/">创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡西欧/">卡西欧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/备份/">备份</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开源/">开源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/泰国/">泰国</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BOSE/" style="font-size: 10.00px;">BOSE</a><a href="/tags/Blog/" style="font-size: 10.00px;">Blog</a><a href="/tags/Linux/" style="font-size: 17.50px;">Linux</a><a href="/tags/Mac/" style="font-size: 20.00px;">Mac</a><a href="/tags/PHP/" style="font-size: 15.00px;">PHP</a><a href="/tags/apple/" style="font-size: 10.00px;">apple</a><a href="/tags/centos/" style="font-size: 15.00px;">centos</a><a href="/tags/emacs/" style="font-size: 20.00px;">emacs</a><a href="/tags/ff/" style="font-size: 10.00px;">ff</a><a href="/tags/git/" style="font-size: 12.50px;">git</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/iDev/" style="font-size: 10.00px;">iDev</a><a href="/tags/iOS/" style="font-size: 12.50px;">iOS</a><a href="/tags/iPhone/" style="font-size: 12.50px;">iPhone</a><a href="/tags/iPod/" style="font-size: 10.00px;">iPod</a><a href="/tags/kindle/" style="font-size: 10.00px;">kindle</a><a href="/tags/org2blog/" style="font-size: 10.00px;">org2blog</a><a href="/tags/ps3/" style="font-size: 12.50px;">ps3</a><a href="/tags/smarty/" style="font-size: 10.00px;">smarty</a><a href="/tags/ssd/" style="font-size: 10.00px;">ssd</a><a href="/tags/subversion/" style="font-size: 10.00px;">subversion</a><a href="/tags/分享/" style="font-size: 15.00px;">分享</a><a href="/tags/创业/" style="font-size: 10.00px;">创业</a><a href="/tags/卡西欧/" style="font-size: 10.00px;">卡西欧</a><a href="/tags/备份/" style="font-size: 10.00px;">备份</a><a href="/tags/开源/" style="font-size: 10.00px;">开源</a><a href="/tags/旅行/" style="font-size: 10.00px;">旅行</a><a href="/tags/泰国/" style="font-size: 10.00px;">泰国</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/10/">October 2010</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">July 2007</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">June 2007</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">May 2006</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">February 2006</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/12/16/299/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/20/387/">iPhone 6入手</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/26/372/">测试</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/19/369/">八月汇报</a>
+          </li>
+        
+          <li>
+            <a href="/2014/03/29/367/">期待</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Xiaolong Mo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>
