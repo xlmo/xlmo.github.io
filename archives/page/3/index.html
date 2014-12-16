@@ -63,115 +63,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-261" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/12/02/261/" class="article-date">
-  <time datetime="2012-12-02T10:08:00.000Z" itemprop="datePublished">Dec 2 2012</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Blog/">Blog</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/12/02/261/">入手iPod Classic</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> 想买iPod的原由说起来似乎不相干： </p>
-<ul>
-<li>iOS 6上将Podcast和Musci拆分成了两个 App，对于我这种两者都要听，并且经常是交叉着听的人来说操作起来很麻烦。<em>   为手机省电。 现在手机用来电话、短信、游戏、Apps，电池已经很吃力了少个功能，其他功能可以多用会。</em>   防盗-_-。 不用手机上插着耳机线，可以少点被贼注意，话说我上一部iPhone 4就是这么被偷的。 至于iPod则拿手上，和Kindle放一起，应无意外。<br>  对于第一点，我有个这样的情景需求：出门在路上听Podcast，上地铁用Kindle看书，就用Music播放班得瑞之类的做背景音乐，下地铁又切换回Podcast…… 所以我需要做的操作是:    </li>
-</ul>
-<ol>
-<li><p>打开Music2.  选歌，播放3.  暂停，退回桌面，打开Podcast4.  选择，播放5.  暂停，切换到Music6.  播放……    </p>
-<p>若在Podcast退回桌面后一段时间再用耳机控制播放的话，有时候居然播放的是Music…… </p>
-<p>所以我不能忍了，需要一个单独的设备来播放音乐，那为什么是iPod Classic呢？ 很简单，它够大…… 我懒得换歌，就一次性把所有专辑全都导进去，够听几年的。。 </p>
-<p> 对了，我是听无损的，其实也不是，是Apple Lossless格式的，还行，比WAV差点，比MP3强许多，这样一首歌大概在20-30M左右，现在已经塞进去3000多首了，还剩60来G空间，很不错。。 资源网上找的，这里 <a href="http://www.everbox.com/f/mKqJ211fRAFY183t9RYOEXMzDp" target="_blank" rel="external">无损音乐</a> 这个我挂了一个礼拜才下完，当然是挑着下的……没有新专辑，这点比较遗憾。。 </p>
-<p><strong>其实说了这些原因，条条都经不起推敲…… 归根到底就一个原因： 长草了 。。</strong> </p>
-<p><img src="http://ww2.sinaimg.cn/mw690/611bed1bjw1dzfkg9mtu0j.jpg" alt="http://ww2.sinaimg.cn/mw690/611bed1bjw1dzfkg9mtu0j.jpg"> </p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://xlmo.github.io/2012/12/02/261/" data-id="0ni3jain1pwqap5d" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iPod/">iPod</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-256" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/11/27/256/" class="article-date">
-  <time datetime="2012-11-26T16:28:00.000Z" itemprop="datePublished">Nov 27 2012</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Blog/">Blog</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/11/27/256/">Emacs里使用词典</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在Emacs里调用系统的Dictionary.app,网上找了下，有这么几种实现方式：</p>
-<ol>
-<li>使用命令行”open dict:/// + word” 来调用词典APP <a href="http://larkery.tumblr.com/post/465585528/emacs-dictionary-app" target="_blank" rel="external">链接</a></li>
-<li>使用单独的python脚本dict.py来返回查询结果，单开buffer来显示结果。我使用这个方法。<br>dict.py<br><pre class="example">#!/usr/bin/python</pre></li>
-</ol>
-<p>import sys<br>from DictionaryServices import *</p>
-<p>def main():<br>    word = sys.argv[1].decode(‘utf-8’)<br>    result = DCSCopyTextDefinition(None, word, (0, len(word)))<br>    print result.encode(‘utf-8’)</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    main()<br>code:</p>
-<p><pre class="example">(defun dictionary ()<br> “dictionary.app”<br> (interactive)</pre></p>
-<p> (let ((editable (not buffer-read-only))<br>       (pt (save-excursion (mouse-set-point last-nonmenu-event)))<br>       beg end)</p>
-<p>   (if (and mark-active<br>            (&lt;= (region-beginning) pt) (&lt;= pt (region-end)) )<br>       (setq beg (region-beginning)<br>             end (region-end))<br>     (save-excursion<br>       (goto-char pt)<br>       (setq end (progn (forward-word) (point)))<br>       (setq beg (progn (backward-word) (point)))<br>       ))</p>
-<p>   (setq word (buffer-substring-no-properties beg end))<br>   (let ((win (selected-window))<br>         (tmpbuf “ <em> dict-process </em>“))<br>     (pop-to-buffer tmpbuf)<br>     (erase-buffer)<br>     (insert word “n”)<br>     (start-process “dict-process” tmpbuf “dict.py” word)<br>     (select-window win)<br>     )<br> ))<br> (define-key global-map (kbd “C-c w”) ‘dictionary)<br><a href="http://sakito.jp/mac/dictionary.html" target="_blank" rel="external">来源</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://xlmo.github.io/2012/11/27/256/" data-id="rm6fubqtytgiteyn" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-248" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2012/11/24/248/" class="article-date">
@@ -573,6 +464,118 @@
 
 
   
+    <article id="post-147" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/03/19/147/" class="article-date">
+  <time datetime="2012-03-19T07:00:10.000Z" itemprop="datePublished">Mar 19 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/03/19/147/">海外代购尝试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>海外代购两个原因：</p>
+<ul>
+<li>价格比国内便宜</li>
+<li>东西国内没有，或者东西比国内安全<br><span style="line-height: 24px;">再长草很久之后，终于在昨天，通过<a href="http://www.030buy.com" target="_blank" rel="external">萌购</a>在<a href="http://www.amazon.co.jp" target="_blank" rel="external">日本亚马逊</a>购买了<a href="http://www.amazon.co.jp/PFU-Keyboard-Professional2-N%E3%82%AD%E3%83%BC%E3%83%AD%E3%83%BC%E3%83%AB%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC-PD-KB400B/dp/B000EXZ0VC/ref=sr_1_1?ie=UTF8&amp;qid=1332140149&amp;sr=8-1" target="_blank" rel="external">HHKB Pro 2</a>，单就价格来说折合人民币不到1.5K，只要不被税，肯定很划算。国内淘宝上也有1.8K的卖，但是还是抱着侥幸心里试试代购。</span></li>
+</ul>
+<p>代购进度:</p>
+<blockquote>
+<p>2012-03-18 17:35 提交订单并付款</p>
+<p>2012-03-18 22:25 已向海外商城下单，等待海外商城发货</p>
+<p>2012-03-19 11:38 海外商城已发货，等待国内仓库收货</p>
+<p>2012-03-29 16:48 商品已到达国内仓库，等待称重</p>
+<p>2012-03-29 16:48 商品已到达国内仓库，完成称重，等待支付运费</p>
+<p>2012-03-29 16:48 全部商品已到达国内仓库，完成称重，等待支付运费</p>
+<p>2012-03-30 01:04 全部商品已到达国内仓库，运费已支付，等待发货</p>
+<p>2012-03-30 14:00 已向用户发货<br>31号上午收到。<br>团发国际运费：75元<br>顺丰快递： 32元<br>总共：1491 ＋ 75 ＋ 32 ＝ 1598<br>淘宝最低也要1.8K，感觉还是很划算。</p>
+</blockquote>
+<p><img src="http://ww4.sinaimg.cn/mw600/611bed1bjw1drj2p8ympfj.jpg" alt="" title="hhkb pro2"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2012/03/19/147/" data-id="ssrusu0u8hcmrpia" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-138" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/01/22/138/" class="article-date">
+  <time datetime="2012-01-21T22:26:55.000Z" itemprop="datePublished">Jan 22 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/01/22/138/">完美越狱终于来了</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天iPhone 4S/iPad 2完美越狱出来了。真正的一键越狱，很快速很傻瓜。<br>装了如下软件来加强使用：</p>
+<ul>
+<li>MultiIconMover 可以一次移动多个图标</li>
+<li><del>GFWinterceptor 翻墙用</del></li>
+<li>FolderEnhancer 一个文件夹可放入N多程序，打开文件夹也快了一些</li>
+<li>KuaiDial 主要用到的就是一个黑名单和一个去电接通震动</li>
+<li>Activator 少用Home键，用手势替代</li>
+<li>iFile 必备</li>
+<li><del>百度输入法</del>  搜狗输入法 这个感觉比百度的好用。九宫格输入法，越狱主要是为了这个</li>
+<li>SBSETTING 用到了在通知中心快速开关WIFI和BT的功能</li>
+<li>iGotYa 输错两次解锁码能拍下照片并将定位信息和照片发送到指定邮箱和手机</li>
+<li>GuizmOVPN open vpn 客户端</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2012/01/22/138/" data-id="19sq8j34z7q4jo81" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/8/">8</a><a class="extend next" rel="next" href="/archives/page/4/">Next &raquo;</a>
@@ -592,13 +595,6 @@
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BOSE/">BOSE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/">apple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ff/">ff</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iDev/">iDev</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPod/">iPod</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kindle/">kindle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/org2blog/">org2blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps3/">ps3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/smarty/">smarty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssd/">ssd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/subversion/">subversion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分享/">分享</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/创业/">创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡西欧/">卡西欧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/备份/">备份</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开源/">开源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/泰国/">泰国</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
   
     
   <div class="widget-wrap">
@@ -613,7 +609,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/10/">October 2010</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">July 2007</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">June 2007</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">May 2006</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">February 2006</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/10/">October 2010</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">July 2007</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">June 2007</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">May 2006</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">February 2006</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -625,15 +621,7 @@
       <ul>
         
           <li>
-            <a href="/2014/12/16/299/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2014/10/20/387/">iPhone 6入手</a>
-          </li>
-        
-          <li>
-            <a href="/2014/08/26/372/">测试</a>
           </li>
         
           <li>
@@ -642,6 +630,14 @@
         
           <li>
             <a href="/2014/03/29/367/">期待</a>
+          </li>
+        
+          <li>
+            <a href="/2013/12/24/362/">驾考全过了，明天领证</a>
+          </li>
+        
+          <li>
+            <a href="/2013/10/07/355/">写在假期最后一天里</a>
           </li>
         
       </ul>

@@ -63,97 +63,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-85" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2011/08/06/85/" class="article-date">
-  <time datetime="2011-08-05T16:36:06.000Z" itemprop="datePublished">Aug 6 2011</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Blog/">Blog</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2011/08/06/85/">啰哩叭嗦</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>有太多太多的人总想拥有美好，总是看到别人的美好就特别的羡慕，然后再看下自己，一声轻叹。总是觉得自己这里不如意，那里不协调，既无天分也无运气，能力平平，贵人也从未出现过，然后天天眼热着旁边人的幸福快乐。<br>记得很久以前看过一则短文，大意是一年轻人向一老者请教如何才能成功，老者把年轻人带到自己的住所，老者打开门时年轻人看到屋内狼藉一片，老者说：“请等一分钟”，便进屋关上了门。年轻人在门口等了一分钟。一分钟后门再次打开了，不同的是，屋内井然有序，完全看不出一丝的乱。老者说：明白了吗？<br>我也有这种通病，总是想要完美，总是希望能尽善尽美。殊不知，完美不是一开始就完美，只看到了完美，却没有看到形成完美的过程……<br>人说来也贱，他能甘于贫穷，也能接受富贵，但他就是没法接受从贫穷到富贵的这个过程，我们称之为奋斗，美其名曰实现自我价值、自我价值最大化，实际上就是一个摆脱贫穷的过程，这个贫穷，可以是指财富、智慧、学识，也可以是情感。</p>
-<p>时下，当我洗完澡，光着膀子坐在空调房中的苹果电脑前，喝着冰镇饮料，享受着他人创造的“完美”时，我是惬意的。但我的内心确实极度茫然的，自己问自己，我会为了让别人感受到惬意而为他人创造完美吗？也许，我会，也不会。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://xlmo.github.io/2011/08/06/85/" data-id="8tjvksv2n8i21ye1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-81" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2011/08/05/81/" class="article-date">
-  <time datetime="2011-08-05T04:54:22.000Z" itemprop="datePublished">Aug 5 2011</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Blog/">Blog</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2011/08/05/81/">Lion下编译Emacs</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>需要重新编译下Emacs，由于是在Lion下，之前的那篇<a href="http://blog.xlmo.me/archives/34.html" title="Mac下编译Emacs" target="_blank" rel="external">Mac下编译Emacs</a>已经不行了，再记录下。</p>
-<p>生成configure</p>
-<p><pre class="brush:shell">#获取源码<br>git clone git://git.savannah.gnu.org/emacs.git<br>./autogen.sh<br>./configure —with-ns<br>make<br>make install</pre><br>./autogen.sh时提示automake和autoconf版本太低了。</p>
-<p><a href="http://www.mattvsworld.com/blog/2010/02/install-the-latest-autoconf-and-automake-on-mac-os-10-6/" target="_blank" rel="external">升级autoconf和automake版本</a></p>
-<p><pre class="brush:shell">curl -O <a href="http://mirrors.kernel.org/gnu/m4/m4-1.4.16.tar.gz" target="_blank" rel="external">http://mirrors.kernel.org/gnu/m4/m4-1.4.16.tar.gz</a><br>tar -xzvf m4-1.4.16.tar.gz<br>cd m4-1.4.13<br>./configure —prefix=/usr<br>make<br>sudo make install</pre></p>
-<p>cd ..<br>curl -O <a href="http://mirrors.kernel.org/gnu/autoconf/autoconf-2.68.tar.gz" target="_blank" rel="external">http://mirrors.kernel.org/gnu/autoconf/autoconf-2.68.tar.gz</a><br>tar -xzvf autoconf-2.68.tar.gz<br>cd autoconf-2.65<br>./configure —prefix=/usr<br>make<br>sudo make install<br>cd ..</p>
-<p>curl -O <a href="http://mirrors.kernel.org/gnu/automake/automake-1.11.1.tar.gz" target="_blank" rel="external">http://mirrors.kernel.org/gnu/automake/automake-1.11.1.tar.gz</a><br>tar xzvf automake-1.11.1.tar.gz<br>cd automake-1.11<br>./configure —prefix=/usr<br>make<br>sudo make install<br>搞定</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://xlmo.github.io/2011/08/05/81/" data-id="4vios5zyecweqteo" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-79" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2011/08/04/79/" class="article-date">
@@ -638,6 +547,107 @@ make install</pre>
 
 
   
+    <article id="post-43" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/04/17/43/" class="article-date">
+  <time datetime="2011-04-17T14:33:36.000Z" itemprop="datePublished">Apr 17 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/04/17/43/">Mem 01</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2006年，PLU，alone、friend、安佳、大师。指战星际。精彩的解说，专业的点评，准时的见面。<br>一下子就是五年前的事情了，就是那一年，世界杯来了，PLU进入了我的视线，而我则来到了北京。现在还记得当时每天准时收看PLU的情景。现在我在北京，世界杯也刚刚过去，PLU也还存在着。可是2006年的时间在心里已经存档了、定格了，不会再发生的感情，也许永远都不会再出现的齐聚一堂的场面，遗憾。<br>可能，这就是完美。</p>
+<embed type="application/x-shockwave-flash" width="480" height="400" src="http://player.youku.com/player.php/sid/XMTc2MTkxMTI0/v.swf" quality="high" align="middle" allowscriptaccess="sameDomain">
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2011/04/17/43/" data-id="w2r7cn0k1qu85g01" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-36" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/04/10/36/" class="article-date">
+  <time datetime="2011-04-10T13:21:47.000Z" itemprop="datePublished">Apr 10 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/04/10/36/">备份环境＋SSD</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>备份环境：<br>磁盘阵列硬盘盒使用<a href="http://item.taobao.com/item.htm?id=9326270331" target="_blank" rel="external">http://item.taobao.com/item.htm?id=9326270331</a> 368+30运费<br>硬盘使用希捷 1.5T 7200转32M SATAII 台式机硬盘 <a href="http://www.360buy.com/product/136659.html" target="_blank" rel="external">http://www.360buy.com/product/136659.html</a> 509×2</p>
+<p>SSD：<br>Intel G3 160 G SSD <a href="http://item.taobao.com/item.htm?id=3710525456" target="_blank" rel="external">http://item.taobao.com/item.htm?id=3710525456</a> 2320＋ 12 运费</p>
+<p>光驱位托架    <a href="http://item.taobao.com/item.htm?id=7016257823" target="_blank" rel="external">http://item.taobao.com/item.htm?id=7016257823</a> 149</p>
+<p>使用TimeMachine备份。</p>
+<p><del>光驱位放置SSD，主盘位放置HDD不变，这样是因为只有主盘位支持SMS，而SSD不需要防震。</del></p>
+<p>因没有合适的工具，卸光驱的螺丝快要被拧花了，所以果断放弃了，现在直接主盘位放SSD，光驱不动，外接硬盘放大数据文件，从SSD创建软链接到外接硬盘上。</p>
+<p>相关优化：</p>
+<p>将休眠模式改为只保存在内存中，这样可以节约8G的磁盘空间（这个大小和内存大小相同）</p>
+<p><pre class="brush:shell">sudo pmset -a hibernatemode 0<br>sudo rm /var/vm/sleepimage</pre><br>关闭访问时间记录(atime)：</p>
+<p>在 <code>/Library/LaunchDaemon</code> 目录下创建一个文件，例如名为<code>com.apple.hfs.noatime.plist</code>，然后编辑这个文件内容为</p>
+<p><pre class="brush:xml">&lt;?xml version=”1.0” encoding=”UTF-8”?&gt;<br>&lt;!DOCTYPE plist PUBLIC “-//Apple//DTD PLIST 1.0//EN”<br>        “<a href="http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&amp;gt" target="_blank" rel="external">http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&amp;gt</a>;<br>&lt;plist version=”1.0”&gt;<br>    &lt;dict&gt;<br>        &lt;key&gt;Label&lt;/key&gt;<br>        &lt;string&gt;com.apple.hfs.noatime&lt;/string&gt;<br>        &lt;key&gt;ProgramArguments&lt;/key&gt;<br>        &lt;array&gt;<br>            &lt;string&gt;mount&lt;/string&gt;<br>            &lt;string&gt;-vuwo&lt;/string&gt;<br>            &lt;string&gt;noatime&lt;/string&gt;<br>            &lt;string&gt;/&lt;/string&gt;<br>        &lt;/array&gt;<br>        &lt;key&gt;RunAtLoad&lt;/key&gt;<br>        &lt;true /&gt;<br>    &lt;/dict&gt;<br>&lt;/plist&gt;</pre><br>然后需要将这个文件的所有权设为系统 root</p>
+<p><pre class="brush:shell">sudo chown root:wheel /Library/LaunchDaemons/com.apple.hfs.noatime.plist</pre><br>查看是否生效：</p>
+<p><pre class="brush:shell">mount</pre></p>
+<h1 id="属性中查看是否有noatime">属性中查看是否有noatime</h1>
+<p>因是放置于主盘位，所以关闭SMS（自由落体保护）。</p>
+<p><pre class="brush:shell">sudo pmset -a sms 0</pre><br>Snow Leopard下使用<a href="http://www.groths.org/?p=308" title="trim enabler" target="_blank" rel="external">trim enabler</a>来打开非官方SSD的TRIM。</p>
+<p>效果：</p>
+<p>开机小菊花转半圈，登陆后瞬间到桌面……</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xlmo.github.io/2011/04/10/36/" data-id="hc4xef5js9iyxorx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssd/">ssd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/备份/">备份</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/archives/page/4/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><a class="extend next" rel="next" href="/archives/page/6/">Next &raquo;</a>
@@ -657,13 +667,6 @@ make install</pre>
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BOSE/">BOSE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/">apple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ff/">ff</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iDev/">iDev</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPod/">iPod</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kindle/">kindle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/org2blog/">org2blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps3/">ps3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/smarty/">smarty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssd/">ssd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/subversion/">subversion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分享/">分享</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/创业/">创业</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卡西欧/">卡西欧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/备份/">备份</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开源/">开源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/泰国/">泰国</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
   
     
   <div class="widget-wrap">
@@ -678,7 +681,7 @@ make install</pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/10/">October 2010</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">July 2007</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">June 2007</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">May 2006</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">February 2006</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">May 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/10/">October 2010</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">April 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">March 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">July 2007</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">June 2007</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">May 2006</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">February 2006</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -690,15 +693,7 @@ make install</pre>
       <ul>
         
           <li>
-            <a href="/2014/12/16/299/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2014/10/20/387/">iPhone 6入手</a>
-          </li>
-        
-          <li>
-            <a href="/2014/08/26/372/">测试</a>
           </li>
         
           <li>
@@ -707,6 +702,14 @@ make install</pre>
         
           <li>
             <a href="/2014/03/29/367/">期待</a>
+          </li>
+        
+          <li>
+            <a href="/2013/12/24/362/">驾考全过了，明天领证</a>
+          </li>
+        
+          <li>
+            <a href="/2013/10/07/355/">写在假期最后一天里</a>
           </li>
         
       </ul>
